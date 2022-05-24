@@ -51,9 +51,45 @@ GET http://localhost:4000/groups/supervisor/supervisor5
 GET http://localhost:4000/groups/cosupervisor/cosupervisor5
 
 ###
-PATCH http://localhost:4000/groups/628c3f448323683e9e1f1388
+PATCH http://localhost:4000/groups/628c3f378323683e9e1f1382
 Content-Type: application/json
 
 {
-    "topicApproved":"Rejected"
+    "topicApproved":"Pending"
 }
+
+//-----------Marking endpoints----------------
+###
+GET http://localhost:4000/markings
+
+###
+POST http://localhost:4000/markings
+Content-Type: application/json
+
+{
+    "schemaType":"schemaType3",
+    "groupmarkings":[
+        {
+            "area":"Test123",
+            "highestmarks":"Test"
+        },
+        {
+            "area":"Test123",
+            "highestmarks":"Test"
+        }
+    ],
+    "individualmarkings":[
+        {
+            "area":"Test123",
+            "highestmarks":"Test"
+        },
+        {
+            "area":"Test123",
+            "highestmarks":"Test"
+        }
+    ]
+
+}
+
+###
+GET http://localhost:4000/markings/getmarking/schemaType3

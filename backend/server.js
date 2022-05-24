@@ -18,4 +18,7 @@ app.use(express.json())
 const groupRouter = require('./routes/group.router')
 app.use('/groups', groupRouter)
 
+const markingRouter = require('./routes/marking.rotuer')
+app.use('/markings', markingRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))
