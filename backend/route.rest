@@ -49,3 +49,11 @@ GET http://localhost:4000/groups/supervisor/supervisor5
 
 ###
 GET http://localhost:4000/groups/cosupervisor/cosupervisor5
+
+###
+PATCH http://localhost:4000/groups/628c3f448323683e9e1f1388
+Content-Type: application/json
+
+{
+    "topicApproved":"Rejected"
+}
