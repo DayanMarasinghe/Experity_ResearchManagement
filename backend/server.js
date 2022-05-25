@@ -18,6 +18,9 @@ app.use(express.json())
 const groupRouter = require('./routes/group.router')
 app.use('/groups', groupRouter)
 
+const topicRegisterRouter = require('./routes/topicRegister.router')
+app.use('/topicregister', topicRegisterRouter)
+
 const markingRouter = require('./routes/marking.rotuer')
 app.use('/markings', markingRouter)
 
