@@ -109,4 +109,74 @@ Content-Type: application/json
      "email" : "kamal@gmail.com"
 
 
+
 }
+
+###
+GET http://localhost:4000/markings/getmarking/schemaType3
+
+//---------------------Evaluations----------------------------
+###
+POST http://localhost:4000/evaluations
+Content-Type: application/json
+
+{
+    "evaluationType":"test",
+    "groupIdentifier":"groupIdentifier",
+    "groupid":"groupid",
+    "groupmarks":[
+        {
+            "area":"Test123",
+            "marks":"Test"
+        },
+        {
+            "area":"Test123",
+            "marks":"Test"
+        }
+    ],
+    "groupleader":[
+        {
+            "area":"Test123",
+            "marks":"Test"
+        },
+        {
+            "area":"Test123",
+            "marks":"Test"
+        }
+    ],
+    "membertwo":[
+        {
+            "area":"Test123",
+            "marks":"Test"
+        },
+        {
+            "area":"Test123",
+            "marks":"Test"
+        }
+    ],
+    "memberthree":[
+        {
+            "area":"Test123",
+            "marks":"Test"
+        },
+        {
+            "area":"Test123",
+            "marks":"Test"
+        }
+    ],
+    "memberfour":[
+        {
+            "area":"Test123",
+            "marks":"Test"
+        },
+        {
+            "area":"Test123",
+            "marks":"Test"
+        }
+    ]
+
+}
+
+###
+GET http://localhost:4000/evaluations
+
