@@ -21,4 +21,7 @@ app.use('/groups', groupRouter)
 const markingRouter = require('./routes/marking.rotuer')
 app.use('/markings', markingRouter)
 
+const evaluationRouter = require('./routes/evaluation.route')
+app.use('/evaluations', evaluationRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))
