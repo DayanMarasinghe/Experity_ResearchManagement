@@ -8,9 +8,22 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.5.0",
+    "process": "^0.11.10"
+  },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.1",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.1.3",
     "parcel": "^2.0.0-rc.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
+    "reactstrap": "^9.0.2"
   }
 }
