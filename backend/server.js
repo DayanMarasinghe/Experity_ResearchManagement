@@ -27,4 +27,7 @@ app.use('/markings', markingRouter)
 const evaluationRouter = require('./routes/evaluation.route')
 app.use('/evaluations', evaluationRouter)
 
+const userRouter = require('./routes/userRoutes')
+app.use('/users',userRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))
