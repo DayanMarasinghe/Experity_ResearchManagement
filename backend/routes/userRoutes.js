@@ -13,9 +13,8 @@ router.post('/staff', async(req,res) => {
     const userExists = await User.findOne({email})
 
     if(userExists){
-        res.status(400)
-        throw new Error('User already exists')
-    }
+        res.status(400).json({ message: 'invalid' })   
+    }else{
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password,salt)
@@ -42,6 +41,7 @@ router.post('/staff', async(req,res) => {
         res.status(400)
         throw new Error("Invalid user data")
     }
+}
 })
 
 router.post('/student', async(req,res) => {
@@ -50,9 +50,8 @@ router.post('/student', async(req,res) => {
     const userExists = await User.findOne({email})
 
     if(userExists){
-        res.status(400)
-        throw new Error('User already exists')
-    }
+        res.status(400).json({ message: 'invalid' }) 
+    }else{
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password,salt)
@@ -79,6 +78,7 @@ router.post('/student', async(req,res) => {
         res.status(400)
         throw new Error("Invalid user data")
     }
+}
 })
 
 router.post('/login', async(req,res) => {
@@ -95,8 +95,7 @@ router.post('/login', async(req,res) => {
             role: user.role
         })
     }else{
-        res.status(400)
-        throw new Error("Invalid user data")
+        res.status(400).json({ message: 'invalid' }) 
     }
     
         res.json({message: 'Login User'})

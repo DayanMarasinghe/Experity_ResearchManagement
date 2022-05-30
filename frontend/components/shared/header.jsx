@@ -19,6 +19,16 @@ function Header(){
                                 Supervisor Dashboard
                             </NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href="/userlogin">
+                                Login
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/userreg">
+                                SignUp
+                            </NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
