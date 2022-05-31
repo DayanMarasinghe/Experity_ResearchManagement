@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Routes } from "react-router-dom";
 
-import SupervisorDashboard from './components/supervisorDashboard';
+
 import UserLogin from './components/userLogin';
 
 import SupervisorDashboard from './components/supervisor-view/supervisorDashboard'
