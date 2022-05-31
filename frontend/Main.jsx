@@ -4,8 +4,8 @@ import { Route, BrowserRouter as Router, Switch, Routes } from "react-router-dom
 
 import UserLogin from './components/userLogin';
 
-import SupervisorDashboard from './components/supervisor-view/supervisorDashboard'
-
+import SupervisorDashboard from './components/supervisor-view/supervisorDashboard';
+import Footer from './components/shared/footer';
 import Header from './components/shared/header';
 import StudentReg from './components/studentRegister';
 import StaffReg from './components/staffRegister';
@@ -28,6 +28,7 @@ export default class App extends React.Component {
                         <Route path='/userreg' element={<UserReg/>}/>
                         <Route path='/staffreg' element={<StaffReg/>}/>
                     </Routes>
+                    <Footer></Footer>
                 </Router>
             </div>
         );
