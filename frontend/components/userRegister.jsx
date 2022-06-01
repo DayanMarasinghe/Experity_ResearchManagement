@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import staff from '../assets/images/staff.png';
+import student from '../assets/images/student.png';
 
 class userRegister extends Component{
 
@@ -8,24 +10,29 @@ class userRegister extends Component{
         return(
         <div>
             <br></br>
-            <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="" />
+            <div className="container" style={{width: 1000}}>
+            <div className="card-container">
+            <div class="row">
+            <div className="col col-md-3">
+            <Card style={{ width: '18rem' , marginLeft:80}}>
+                <Card.Img variant="top" src={staff} />
+                <Card.Body>
+                <Card.Title>Register as a Staff Member</Card.Title>
+                    <a href="./staffreg" class="stretched-link"></a>
+                </Card.Body>
+            </Card>
+            </div>
+            <div className="col col-md-3">
+            <Card style={{ width: '18rem', marginLeft:300}}>
+                <Card.Img variant="top" src={student} />
                 <Card.Body>
                 <Card.Title>Register as a Student</Card.Title>
                     <a href="./studentreg" class="stretched-link"></a>
                 </Card.Body>
             </Card>
             </div>
-            <br></br>
-            <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="" />
-                <Card.Body>
-                <Card.Title>Register as a Staff Member</Card.Title>
-                    <a href="./staffreg" class="stretched-link"></a>
-                </Card.Body>
-            </Card>
+            </div>
+            </div>
             </div>
         </div>
         );
