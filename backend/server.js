@@ -21,6 +21,9 @@ app.use('/groups', groupRouter)
 const topicRegisterRouter = require('./routes/topicRegister.router')
 app.use('/topicregister', topicRegisterRouter)
 
+const supervisorRouter = require('./routes/requestSupervisors.router')
+app.use('/supervisors', supervisorRouter)
+
 const markingRouter = require('./routes/marking.rotuer')
 app.use('/markings', markingRouter)
 
