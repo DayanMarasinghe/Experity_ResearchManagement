@@ -16,9 +16,9 @@ class SupervisorDashboard extends Component {
         return (
             <div>
                 <p className="welcome-txt">Welcome</p>
-                <div className="welcome-img">
+                {/*<div className="welcome-img">
                     <img src={welcome} style={{height : '250px', width:'0px'}}/>
-                </div>
+                </div>*/}
                 <div className="card-container">
                     <MDBRow className='row-cols-1 row-cols-md-5 g-4'>
                         <MDBCol>
@@ -39,7 +39,7 @@ class SupervisorDashboard extends Component {
                                     <Button variant="primary" as={Link}
                                         to="/addevaluation">
                                         Evaluations
-                                    </Button>
+                                    </Button> 
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
@@ -57,7 +57,8 @@ class SupervisorDashboard extends Component {
                             <MDBCard className="card">
                                 <MDBCardImage src={topic} position="top"></MDBCardImage>
                                 <MDBCardBody className="card-body">
-                                    <Button variant="primary">
+                                    <Button variant="primary" as={Link}
+                                        to="/accepttopic">
                                         View Topics and Accept
                                     </Button>
                                 </MDBCardBody>
