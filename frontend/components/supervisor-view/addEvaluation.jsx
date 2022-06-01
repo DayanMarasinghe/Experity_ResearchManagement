@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import Typography from '@mui/material/Typography';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import './addEvaluation.css';
+import { Button } from "react-bootstrap";
 
 class AddEvaluation extends Component{
 
@@ -37,7 +38,12 @@ class AddEvaluation extends Component{
                     </Typography>
                 </Breadcrumbs>
                 <div className="container">
-                    <p className="group-txt">Add Evaluations</p>
+                    <p className="group-txt">Add Evaluations
+                        <Button style={{color: 'black', float:'inline-end', fontSize:'10px', marginTop:'20px'}} variant="primary" as={Link}
+                            to="/addevaluation">
+                            Marking Schemes &gt;&gt;
+                        </Button> 
+                    </p>
                     <form>
                         <div class="form-group">
                             <label for="groupid">Group ID</label>
