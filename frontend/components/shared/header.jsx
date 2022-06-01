@@ -20,6 +20,11 @@ function Header(){
                             </NavLink>
                         </NavItem>
                         <NavItem>
+                            <NavLink href="/">
+                                Student Dahboard
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink href="/userlogin">
                                 Login
                             </NavLink>
