@@ -13,6 +13,7 @@ import TopicRegistration from './components/student/topicRegistration/TopicRegis
 import ResearchResources from './components/student/researchResources/researchResources';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GroupView from './components/supervisor-view/groupview';
+import AddEvaluation from './components/supervisor-view/addEvaluation';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
+                        <Route path='/addevaluation' element={<AddEvaluation />} />
                     </Routes>
                     <Footer></Footer>
                 </Router>
