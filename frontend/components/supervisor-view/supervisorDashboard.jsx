@@ -8,14 +8,16 @@ import marking from '../../assets/images/marking-img.png';
 import chat from '../../assets/images/chat-img.png';
 import topic from '../../assets/images/topic-img.png';
 import request from '../../assets/images/requests-img.png';
+import { Link } from "react-router-dom";
 
 class SupervisorDashboard extends Component {
+    
     render() {
         return (
             <div>
                 <p className="welcome-txt">Welcome</p>
                 <div className="welcome-img">
-                    <img src={welcome} height={'50%'}/>
+                    <img src={welcome} style={{height : '250px', width:'250px'}}/>
                 </div>
                 <div className="card-container">
                     <MDBRow className='row-cols-1 row-cols-md-5 g-4'>
@@ -23,7 +25,8 @@ class SupervisorDashboard extends Component {
                             <MDBCard className="card">
                                 <MDBCardImage src={group} position="top"></MDBCardImage>
                                 <MDBCardBody className="card-body">
-                                    <Button variant="primary">
+                                    <Button variant="primary" as={Link}
+                                        to="/group">
                                         View Groups
                                     </Button>
                                 </MDBCardBody>
@@ -71,6 +74,7 @@ class SupervisorDashboard extends Component {
                         </MDBCol>
                     </MDBRow>
                 </div>
+                <Button className="logout-btn" variant="danger">Logout</Button>
             </div>
         );
     }
