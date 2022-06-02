@@ -37,4 +37,8 @@ app.use('/users',userRouter)
 const adminUserRouter = require('./routes/adminUser.route')
 app.use('/adminUsers',adminUserRouter)
 
+//request routers
+const requestRouter = require('./routes/requests.route')
+app.use('/requests', requestRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))
