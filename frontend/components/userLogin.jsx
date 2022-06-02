@@ -34,7 +34,14 @@ class userLogin extends Component{
             alert("Logged in successfully")
             if(response.data.role === "Supervisor"){
                 window.location.href = '/supervisordashboard'
+            }else if(response.data.role === "Panel Member"){
+                window.location.href = 'pmdashboard'
+            }else if(response.data.role === "Student"){
+                window.location.href = 'studentdashboard'
+            }else{
+                window.location.href = '#'
             }
+
             // localStorage.setItem("userid", response.data)
 
         }).catch(error=>{
@@ -99,7 +106,7 @@ class userLogin extends Component{
                     </form>
                     <br></br>
                 </div>
-                </div>
+            </div>
         )
     }
 }

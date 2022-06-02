@@ -20,6 +20,9 @@ import StudentHeader from './components/student/header/studentHeader';
 import TopicRegistration from './components/student/topicRegistration/TopicRegistration';
 import ResearchResources from './components/student/researchResources/researchResources';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PMDashboard from './components/panelmember-view/pmDashboard';
+import PmPresentation from './components/panelmember-view/pmPrstEvaluation'
+import PmTopic from './components/panelmember-view/pmTopicEval'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -40,6 +43,9 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
+                        <Route path='/pmdashboard' element={<PMDashboard/>}/>
+                        <Route path='/pmevalgrpid' element={<PmPresentation/>}/>
+                        <Route path='/pmtopiceval' element={<PmTopic/>}/>
                     </Routes>
                     <Footer></Footer>
                 </Router>

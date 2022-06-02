@@ -21,7 +21,12 @@ function Header(){
                         </NavItem>
                         <NavItem>
                             <NavLink href="/">
-                                Student Dahboard
+                                Student Dashboard
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/pmdashboard">
+                                Panel Member Dashboard
                             </NavLink>
                         </NavItem>
                         <NavItem>
@@ -32,6 +37,13 @@ function Header(){
                         <NavItem>
                             <NavLink href="/userreg">
                                 SignUp
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                    <Nav className="ms-auto">
+                        <NavItem>
+                            <NavLink href="/userlogin">
+                                Logout
                             </NavLink>
                         </NavItem>
                     </Nav>
