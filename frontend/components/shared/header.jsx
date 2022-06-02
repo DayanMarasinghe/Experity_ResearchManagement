@@ -34,11 +34,6 @@ function Header(){
                                 SignUp
                             </NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/admindashboard">
-                                AdminDashboard
-                            </NavLink>
-                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>

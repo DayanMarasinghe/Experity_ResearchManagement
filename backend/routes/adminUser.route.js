@@ -39,122 +39,32 @@ router.get('/usercategory/:filter', async (req, res) => {
     }
 })
 
-router.get('/userup/:id', async (req, res) => {
-
-    const ID = req.params.id;
+router.patch('/:id', async(req, res) => {
+    //check the relevent feild to be updated
+   
+    const userID = req.params.id;
 
     try {
-        const users = await User.find({"_id": ID})
-        res.json(users)
-        console.log(users) 
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
-    }
-})
-
-// router.put('/userUpdate/:id', async(req, res) => {
-//     //check the relevent feild to be updated
-   
-//     const userID = req.params.id;
-
-//     try {
-//       //update the JS object
-//         const userOB = new User({
-//         name: req.body.name,
-//         role: req.body.role,
-//         specialisation: req.body.specialisation,
+      //update the JS object
+        const userOB = new User({
+        name: req.body.name,
+        role: req.body.role,
+        specialisation: req.body.specialisation,
         
-//     })
-   
-//       const user = await User.updateMany({"_id":userID}, [ {$set : { "name": userOB.name, "role":userOB.role, "specialisation": userOB.specialisation} } ]);
-  
-//     } catch (err) {
-//       res.status(400).json({message: err.message})
-//     }
-    
-//   })
-
-//////////////////////////////
-
-  router.put('/userUpdate/:id', async(req, res) => {
-    //check the relevent feild to be updated
-    
-    console.log("User Update function ");
-
-    let id = req.params.id;
-
-    let dataSet =req.body;
-
-    console.log("ID:",id);
-
-    console.log("Data:",dataSet);
-
-    await User.findByIdAndUpdate(id,dataSet)
-
-    .then((data)=> {
-
-        console.log(data);
-
-        res.status(200).send({
-
-        data: data,
-
-    });
-
     })
-
-    .catch((error)=> {
-
-    res.status(500).send({
-
-    error: error.message,
-
-    });
-
-});
-
+   
+      const user = await User.updateMany({"_id":userID}, [ {$set : { "name": userOB.name, "role":userOB.role, "specialisation": userOB.specialisation} } ]);
+  
+    } catch (err) {
+      res.status(400).json({message: err.message})
+    }
     
   })
 
+ router.delete('/:id', async(req, res, ) =>  {
 
-
-
-  
-//   consteditResearchDetails = async (req, res) => {
-
-//     letid = req.params.id;
-    
-//     letdataSet =req.body;
-    
-//     console.log("ID:",id);
-    
-//     console.log("Data:",dataSet);
-    
-//     awaitResearch.findByIdAndUpdate(id,dataSet)
-    
-//     .then((data)=> {
-    
-//     console.log(data);
-    
-//     res.status(200).send({
-    
-//     data: data,
-    
-//     });
-    
-//     })
-
-
-
-
- router.delete('/deluser/:id', async(req, res, ) =>  {
-
-    console.log("Hit delete User")
     const userID = req.params.id;
-    //await User.deleteOne( {"_id": userID } )
-    await User.findOneAndDelete(userID)
+    await User.deleteOne( {"_id": userID } )
     console.log("delete: req.body: " + JSON.stringify(req.body));
     res.json(req.body);
   })

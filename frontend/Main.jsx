@@ -19,8 +19,6 @@ import StudentDashboard from './components/student/studentDashboard/studentDashb
 import StudentHeader from './components/student/header/studentHeader';
 import TopicRegistration from './components/student/topicRegistration/TopicRegistration';
 import ResearchResources from './components/student/researchResources/researchResources';
-import AdminDash from './components/adminDashboard';
-import AdminStudent from './components/showStudent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends React.Component {
@@ -42,8 +40,6 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
-                        <Route path='/admindashboard' element={<AdminDash/>}/>
-                        <Route path='/adminstudent' element={<AdminStudent/>}/>
                     </Routes>
                     <Footer></Footer>
                 </Router>
