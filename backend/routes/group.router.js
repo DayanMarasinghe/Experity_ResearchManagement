@@ -49,16 +49,17 @@ router.post('/', async(req, res) => {
     //creating the JS object
     const group = new Group({
         groupid: req.body.groupid,
-        groupleader: req.body.groupleader,
-        membertwo: req.body.membertwo,
-        memberthree: req.body.memberthree,
-        memberfour: req.body.memberfour,
         topic: req.body.topic,
-        topicApproved: req.body.topicApproved,
-        researchGroup: req.body.researchGroup,
-        researchArea: req.body.researchArea,
         supervisor: req.body.supervisor,
-        cosupervisor: req.body.cosupervisor
+        cosupervisor: req.body.cosupervisor,
+        groupleaderid: req.body.groupleaderid,
+        groupleadername: req.body.groupleadername,
+        membertwoid: req.body.membertwoid,
+        membertwoname: req.body.membertwoname,
+        memberthreeid: req.body.memberthreeid,
+        memberthreename: req.body.memberthreename,
+        memberfourid: req.body.memberfourid,
+        memberfourname: req.body.memberfourname,
     })
 
     try{
@@ -117,16 +118,16 @@ router.get('/cosupervisor/:cosupervisor', async (req, res) => {
 /**
  * @router - update the topic approve status
  */
-router.patch('/:id', getGroup,async(req, res) => {
-    if (req.body.topicApproved != null) {
-        res.group.topicApproved = req.body.topicApproved
-    }
-    try {
-        const updateGroup = await res.group.save()
-        res.json(updateGroup)
-    } catch (error) {
-        res.status(400).json({updateGroup})
-    }
-})
+// router.patch('/:id', getGroup,async(req, res) => {
+//     if (req.body.topicApproved != null) {
+//         res.group.topicApproved = req.body.topicApproved
+//     }
+//     try {
+//         const updateGroup = await res.group.save()
+//         res.json(updateGroup)
+//     } catch (error) {
+//         res.status(400).json({updateGroup})
+//     }
+// })
 
 module.exports = router;
