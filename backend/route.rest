@@ -8,40 +8,17 @@
 
 # {
 #     "groupid":"group6",
-#     "groupleader":[
-#         {
-#             "studentid":"leaderid",
-#             "name":"leadername",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "membertwo":[
-#         {
-#             "studentid":"membertwo",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "memberthree":[
-#         {
-#             "studentid":"memberthree",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "memberfour":[
-#         {
-#             "studentid":"memberfour",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
 #     "topic":"topic",
-#     "topicApproved":"topicApproved",
-#     "researchGroup":"researchGroup",
-#     "researchArea":"researchArea",
-#     "supervisor":"supervisor5",
-#     "cosupervisor":"cosupervisor5"
+#     "supervisor":"supervisor",
+#     "cosupervisor":"cosupervisor",
+#     "groupleaderid":"groupleaderid",
+#     "groupleadername":"groupleadername",
+#     "membertwoid":"membertwoid",
+#     "membertwoname":"membertwoname",
+#     "memberthreeid":"memberthreeid",
+#     "memberthreename":"memberthreename",
+#     "memberfourid":"memberfourid",
+#     "memberfourname":"memberfourname"
 # }
 
 # ###
@@ -177,6 +154,30 @@ Content-Type: application/json
 
 }
 
+# ###
+# GET http://localhost:4000/evaluations
+
 ###
-GET http://localhost:4000/evaluations
+GET http://localhost:4000/adminUsers/getpresentation
+
+#PATCH http://localhost:4000/adminUsers/6292f5e1fc2eddb6492e2297
+#Content-Type: application/json
+
+#{
+#    "name" : "Kavindu",
+#    "role":"Student",
+#    "specialisation":"None"    
+#}
+
+
+# DELETE  http://localhost:4000/adminUsers/6292f46375a4bb1f4ab11fe6
+
+PATCH  http://localhost:4000/adminUsers/updateviva/6296fccde5351d24b235598e
+Content-Type: application/json
+
+{
+       "Attributes": "Hello",
+        "marks": 88 
+}
+   
 

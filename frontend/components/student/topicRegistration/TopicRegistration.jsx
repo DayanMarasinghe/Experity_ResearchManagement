@@ -14,13 +14,13 @@ function TopicRegistration() {
     <div className="container" style={{marginTop : 60, paddingLeft : 70, paddingRight : 80}}>
       <Form>
         <FormGroup row>
-          <Label for="exampleEmail" sm={2}>
+          <Label for="" sm={2}>
             Group ID
           </Label>
           <Col sm={10}>
             <Input
               id="exampleEmail"
-              name="email"
+              name="id"
               placeholder="Enter the Group ID"
               type="text"
             />
