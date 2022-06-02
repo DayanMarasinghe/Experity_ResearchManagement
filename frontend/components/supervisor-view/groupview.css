@@ -1,0 +1,23 @@
+.grp-container{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+}
+
+.group-txt{
+    padding-top: 5px;
+    text-align: start;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.btn-container{
+    float: inline-end;
+    padding-bottom: 1%;
+}
+
+.breadcrumb{
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}

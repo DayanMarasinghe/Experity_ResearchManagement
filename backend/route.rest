@@ -177,6 +177,30 @@ Content-Type: application/json
 
 }
 
+# ###
+# GET http://localhost:4000/evaluations
+
 ###
-GET http://localhost:4000/evaluations
+GET http://localhost:4000/adminUsers/getpresentation
+
+#PATCH http://localhost:4000/adminUsers/6292f5e1fc2eddb6492e2297
+#Content-Type: application/json
+
+#{
+#    "name" : "Kavindu",
+#    "role":"Student",
+#    "specialisation":"None"    
+#}
+
+
+# DELETE  http://localhost:4000/adminUsers/6292f46375a4bb1f4ab11fe6
+
+PATCH  http://localhost:4000/adminUsers/updateviva/6296fccde5351d24b235598e
+Content-Type: application/json
+
+{
+       "Attributes": "Hello",
+        "marks": 88 
+}
+   
 
