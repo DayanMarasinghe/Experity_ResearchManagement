@@ -1,0 +1,8 @@
+.container{
+    width: 800px;
+    padding: 2% 0% 2% 0%;
+}
+
+.complete-btn{
+    float: inline-end;
+}
