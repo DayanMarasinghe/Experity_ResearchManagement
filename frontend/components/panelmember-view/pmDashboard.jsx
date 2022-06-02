@@ -6,9 +6,10 @@ import eval from '../../assets/images/Videocall.png';
 
 class pmDashboard extends Component {
     render() {
+        const username = localStorage.getItem("username");
         return (
             <div>
-                <p className="welcome-txt">Welcome</p>
+                <p className="welcome-txt">Welcome {username}</p>
                 <div className="card-container">
                     <MDBRow className='row-cols-1 row-cols-md-5 g-4' center>
                         <MDBCol>

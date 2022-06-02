@@ -42,7 +42,7 @@ class userLogin extends Component{
                 window.location.href = '#'
             }
 
-            // localStorage.setItem("userid", response.data)
+            localStorage.setItem("username", response.data.name)
 
         }).catch(error=>{
             console.error(error)
