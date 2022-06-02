@@ -198,3 +198,28 @@ Content-Type: application/json
     "memberfourmark":"memberfourmark",
     "comments":"comments"
 }
+
+###
+POST http://localhost:4000/requests
+Content-Type: application/json
+
+{
+    "groupid":"grp123",
+    "topic":"topic",
+    "description":"description",
+    "requestedSupervisor":"requestedSupervisor",
+    "requestedCosupervisor":"requestedCosupervisor",
+    "stateSupervisor":"stateSupervisor",
+    "stateCoSupervisor":"stateCoSupervisor"
+}
+
+###
+GET http://localhost:4000/requests/supervisor/requestedSupervisor
+
+###
+PATCH http://localhost:4000/requests/62990e674b16a85940439776
+Content-Type: application/json
+
+{
+    "stateSupervisor":"Approved"
+}
