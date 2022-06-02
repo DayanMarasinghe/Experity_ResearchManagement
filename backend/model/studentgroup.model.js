@@ -36,6 +36,9 @@ const studentgroupSchema = new mongoose.Schema({
     },
     memberfourname:{
         type:String,
+    },
+    panelmember:{
+        type:String
     }
 
 })

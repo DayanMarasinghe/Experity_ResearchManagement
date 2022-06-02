@@ -18,7 +18,7 @@ import PMDashboard from './components/panelmember-view/pmDashboard';
 import PmPresentation from './components/panelmember-view/pmPrstEvaluation'
 import PmTopic from './components/panelmember-view/pmTopicEval'
 
-import 'react-dropzone-uploader/dist/styles.css'
+// import 'react-dropzone-uploader/dist/styles.css'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
@@ -36,7 +36,7 @@ export default class App extends React.Component {
                     <Header></Header>
                     <Routes>
                         <Route path='/supervisordashboard' element={<SupervisorDashboard />} />
-                        <Route path='/userlogin' element={<UserLogin />} />
+                        <Route exact path='/' element={<UserLogin />} />
                         <Route path='/studentreg' element={<StudentReg/>}/>
                         <Route path='/userreg' element={<UserReg/>}/>
                         <Route path='/staffreg' element={<StaffReg/>}/>

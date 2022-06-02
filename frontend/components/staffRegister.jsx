@@ -22,11 +22,7 @@ handleChange =(e) =>{
     this.setState({
         [e.target.name]: e.target.value,
     })
-    if(e.target.value === "Supervisor"){
-        document.getElementById('specialisation').disabled=false
-    }else if(e.target.value === "Panel Member"){
-        document.getElementById('specialisation').disabled=true
-    }
+
 }
 
 handleSubmit =(e) =>{
@@ -94,11 +90,11 @@ clearAll = () => {
                 <br></br>
                 <div class="form-group">
                     <label for="specialisation">Specialisation</label>
-                    <input type='text' class="form-control" name='specialisation' id="specialisation" value={specialisation} onChange={this.handleChange} disabled={true}></input>
+                    <input type='text' class="form-control" name='specialisation' id="specialisation" value={specialisation} onChange={this.handleChange}></input>
                 </div>
                 <br></br>
                 <button type="submit" class="btn btn-primary" style={{width: 250}}>Submit</button>
-                <button type="clear" class="btn btn-danger" style={{width: 200}} onClick={()=>this.clearAll()}>Clear All</button>
+                <button class="btn btn-danger" style={{width: 200}} onClick={()=>this.clearAll()}>Clear All</button>
             </form>
             <br></br>
             <br></br>
