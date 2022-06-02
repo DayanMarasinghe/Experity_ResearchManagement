@@ -6,6 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Table from './pmSchemeView'
 
 class pmEvaluation extends Component{
 
@@ -13,12 +14,30 @@ constructor(props){
     super(props)
 
     this.state={
-        name:'',
-        email:'',
-        password:'',
-        role:'',
-        specialisation:''
+      groupid:'',
+      topic:'',
+      groupleaderid:'',
+      groupleadername:'',
+      membertwoid:'',
+      membertwoname:'',
+      memberthreeid:'',
+      memberthreename:'',
+      memberfourid:'',
+      memberfourname:'',
     }
+}
+
+componentDidMount(){
+  
+  const user = localStorage.getItem("username");
+    fetch(`http://localhost:4000/panelMarking/group/${user}`)
+    .then((res) => res.json())
+    .then((json) => {
+        this.setState({
+            groups: json,
+            DataisLoaded: true
+        });
+    })
 }
 
 handleChange =(e) =>{
@@ -42,36 +61,31 @@ handleChange =(e) =>{
 // }
 
     render(){
-        const{name,email,password,specialisation,role} = this.state
+      const {DataisLoaded, groups} = this.state;
+
+      if(!DataisLoaded) return <div>
+      <h1>Please wait.................</h1></div>;
 
         return (
-        <div>
+        <div> 
             <br></br>
             <h2 style={{marginLeft:500}}>Presentation Evaluation</h2>
         <div className="container" style={{width: 800}}>
         <br></br>
             <h5>Marking Scheme</h5>
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th scope="col">Criteria</th>
-                        <th scope="col">Marks</th>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                </tbody>
-            </table>
+            <Table></Table>
         </div>
         <br></br>
         <h5>Group Details</h5>
+        {
+          groups.map((grp) => (
         <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Accordion 1</Typography>
+          <Typography>{grp.topic} - {grp.groupid}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -79,28 +93,28 @@ handleChange =(e) =>{
                 <table class="table table-bordered" >
                     <tbody>
                         <tr>
-                            <td>IT Number</td>
-                            <td>Name</td>
-                            <td>Marks</td>
+                            <th>IT Number</th>
+                            <th>Name</th>
+                            <th>Marks</th>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{grp.groupleaderid}</td>
+                            <td>{grp.groupleadername}</td>
                             <td><input required></input></td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{grp.membertwoid}</td>
+                            <td>{grp.membertwoname}</td>
                             <td><input required></input></td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{grp.memberthreeid}</td>
+                            <td>{grp.memberthreename}</td>
                             <td><input required></input></td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{grp.memberfourid}</td>
+                            <td>{grp.memberfourname}</td>
                             <td><input required></input></td>
                         </tr>
                     </tbody>
@@ -110,21 +124,7 @@ handleChange =(e) =>{
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      ))}
         <br></br><br></br><br></br>
         </div>
             

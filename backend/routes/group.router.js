@@ -60,6 +60,7 @@ router.post('/', async(req, res) => {
         memberthreename: req.body.memberthreename,
         memberfourid: req.body.memberfourid,
         memberfourname: req.body.memberfourname,
+        panelmember: req.body.panelmember
     })
 
     try{

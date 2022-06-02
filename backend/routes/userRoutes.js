@@ -3,7 +3,6 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const User = require('../model/userModel')
-const Marking = require('../model/marking.model')
 
 const protect = require('../middleware/authMiddleware')
 
@@ -118,43 +117,6 @@ const generateToken = (id)=>{
         expiresIn: '30d'
     })
 }
-
-router.get('/markingScheme',async(req,res)=> {
-    try {
-        const markings = await Marking.find()
-        res.json(markings)
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
-    }
-})
-
-
-
-router.post('/evaluation', async (req, res) => {
-    //creating the JS object
-    const evaluation = new Evaluation({
-        evaluationType: req.body.evaluationType,
-        groupIdentifier: req.body.groupIdentifier,
-        groupid: req.body.groupid,
-        groupmarks: req.body.groupmarks,
-        groupleader: req.body.groupleader,
-        membertwo: req.body.membertwo,
-        memberthree: req.body.memberthree,
-        memberfour: req.body.memberfour
-    })
-
-    try {
-        const newEvaluation = await evaluation.save()
-        res.status(201).json(newEvaluation)
-    } catch (err) {
-        res.status(400).json({
-            message: err.message
-        })
-    }
-
-})
 
 router.post('/admin', async(req,res) => {
     const { name, email, password, role} = req.body
