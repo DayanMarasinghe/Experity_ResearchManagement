@@ -180,4 +180,21 @@ Content-Type: application/json
         "marks": 88 
 }
    
+###
+POST http://localhost:4000/evaluations
+Content-Type: application/json
 
+{
+    "groupid":"grp123",
+    "evaluationtype":"evaluationtype",
+    "groupmark":"groupmark",
+    "groupleaderid":"groupleaderid",
+    "groupleadermark":"groupleadermark",
+    "membertwoid":"membertwoid",
+    "membertwomark":"membertwomark",
+    "memberthreeid":"memberthreeid",
+    "memberthreemark":"memberthreemark",
+    "memberfourid":"memberfourid",
+    "memberfourmark":"memberfourmark",
+    "comments":"comments"
+}

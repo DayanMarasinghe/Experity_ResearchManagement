@@ -23,14 +23,18 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     //creating the JS object
     const evaluation = new Evaluation({
-        evaluationType: req.body.evaluationType,
-        groupIdentifier: req.body.groupIdentifier,
         groupid: req.body.groupid,
-        groupmarks: req.body.groupmarks,
-        groupleader: req.body.groupleader,
-        membertwo: req.body.membertwo,
-        memberthree: req.body.memberthree,
-        memberfour: req.body.memberfour
+        evaluationtype: req.body.evaluationtype,
+        groupmark: req.body.groupmark,
+        groupleaderid: req.body.groupleaderid,
+        groupleadermark: req.body.groupleadermark,
+        membertwoid: req.body.membertwoid,
+        membertwomark: req.body.membertwomark,
+        memberthreeid: req.body.memberthreeid,
+        memberthreemark: req.body.memberthreemark,
+        memberfourid: req.body.memberfourid,
+        memberfourmark: req.body.memberfourmark,
+        comments: req.body.comments,
     })
 
     try {
