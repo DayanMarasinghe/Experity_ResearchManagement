@@ -13,10 +13,16 @@ import TopicRegistration from './components/student/topicRegistration/TopicRegis
 import ResearchResources from './components/student/researchResources/researchResources';
 import DocumentSubmission from './components/student/documentSubmission/DocumentSubmission';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import PMDashboard from './components/panelmember-view/pmDashboard';
+import PmPresentation from './components/panelmember-view/pmPrstEvaluation'
+import PmTopic from './components/panelmember-view/pmTopicEval'
+
 import 'react-dropzone-uploader/dist/styles.css'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
+
 
 
 export default class App extends React.Component {
@@ -39,9 +45,15 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
+
+                        <Route path='/pmdashboard' element={<PMDashboard/>}/>
+                        <Route path='/pmevalgrpid' element={<PmPresentation/>}/>
+                        <Route path='/pmtopiceval' element={<PmTopic/>}/>
+
                         <Route path='/documentsubmit' element={<DocumentSubmission/>}/>
                         <Route path='/addevaluation' element={<AddEvaluation />} />
                         <Route path='/accepttopic' element={<AcceptTopic />} />
+
 
                     </Routes>
                     <Footer></Footer>
