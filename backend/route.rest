@@ -94,89 +94,117 @@
 # ###
 # GET http://localhost:4000/markings/getmarking/schemaType3
 
-POST http://localhost:4000/topicregister
-Content-Type: application/json
+# POST http://localhost:4000/topicregister
+# Content-Type: application/json
 
-{
-    "groupid" : "group1",
-     "topic":"topic",
-    "researchGroup":"ACC",
-     "researchArea":"Robotics",
-     "supervisor":"Dr Parker",
-     "cosupervisor":"Dr peter",
-     "leadername" : "kamal",
-     "itnumber" : "it19979656",
-     "email" : "kamal@gmail.com"
+# {
+#     "groupid" : "group1",
+#      "topic":"topic",
+#     "researchGroup":"ACC",
+#      "researchArea":"Robotics",
+#      "supervisor":"Dr Parker",
+#      "cosupervisor":"Dr peter",
+#      "leadername" : "kamal",
+#      "itnumber" : "it19979656",
+#      "email" : "kamal@gmail.com"
+
+# }
+
+# ###
+# GET http://localhost:4000/markings/getmarking/schemaType3
+
+# //---------------------Evaluations----------------------------
+# ###
+# POST http://localhost:4000/evaluations
+# Content-Type: application/json
+
+# {
+#     "evaluationType":"test",
+#     "groupIdentifier":"groupIdentifier",
+#     "groupid":"groupid",
+#     "groupmarks":[
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         },
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         }
+#     ],
+#     "groupleader":[
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         },
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         }
+#     ],
+#     "membertwo":[
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         },
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         }
+#     ],
+#     "memberthree":[
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         },
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         }
+#     ],
+#     "memberfour":[
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         },
+#         {
+#             "area":"Test123",
+#             "marks":"Test"
+#         }
+#     ]
+
+# }
 
 
+# ###
+# GET http://localhost:4000/evaluations
 
-}
+# POST http://localhost:4000/supervisors/savesupervisors
+# Content-Type: application/json
 
-###
-GET http://localhost:4000/markings/getmarking/schemaType3
+# {
+#      "supervisor_name":"Dr kamal",
+#      "specialization":"AI",
+#      "email":"kamal.sliit@outlook.com"
+     
+# }
 
-//---------------------Evaluations----------------------------
-###
-POST http://localhost:4000/evaluations
-Content-Type: application/json
+# GET http://localhost:4000/supervisors
 
-{
-    "evaluationType":"test",
-    "groupIdentifier":"groupIdentifier",
-    "groupid":"groupid",
-    "groupmarks":[
-        {
-            "area":"Test123",
-            "marks":"Test"
-        },
-        {
-            "area":"Test123",
-            "marks":"Test"
-        }
-    ],
-    "groupleader":[
-        {
-            "area":"Test123",
-            "marks":"Test"
-        },
-        {
-            "area":"Test123",
-            "marks":"Test"
-        }
-    ],
-    "membertwo":[
-        {
-            "area":"Test123",
-            "marks":"Test"
-        },
-        {
-            "area":"Test123",
-            "marks":"Test"
-        }
-    ],
-    "memberthree":[
-        {
-            "area":"Test123",
-            "marks":"Test"
-        },
-        {
-            "area":"Test123",
-            "marks":"Test"
-        }
-    ],
-    "memberfour":[
-        {
-            "area":"Test123",
-            "marks":"Test"
-        },
-        {
-            "area":"Test123",
-            "marks":"Test"
-        }
-    ]
 
-}
+# POST http://localhost:4000/topicregister/creategroup
+# Content-Type: application/json
 
-###
-GET http://localhost:4000/evaluations
+# {
+#     "groupid":"group6",
+#     "members" : [
+#         "6296facab996c21294bea6df",
+#         "6296fb02b996c21294bea6e5"
+       
+#     ]
+# }
+
+GET http://localhost:4000/topicregister/getstudents/6296fb02b996c21294bea6e5
+
+# GET http://localhost:4000/topicregister/getstudents
 
