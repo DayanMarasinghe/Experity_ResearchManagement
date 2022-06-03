@@ -204,12 +204,12 @@ POST http://localhost:4000/requests
 Content-Type: application/json
 
 {
-    "groupid":"grp123",
-    "topic":"topic",
-    "description":"description",
-    "requestedSupervisor":"requestedSupervisor",
+    "groupid":"GRP_03_WE_2022",
+    "topic":"Cultural expectations and practices",
+    "description":"Cultural expectations are the messages we internalize about what is and is not acceptable, given the standards of behavior and cultural norms put forth by our social systems. Social groups come in many forms, including our family, community, friends, workplace, and even affinity groups.",
+    "requestedSupervisor":"Saman",
     "requestedCosupervisor":"requestedCosupervisor",
-    "stateSupervisor":"stateSupervisor",
+    "stateSupervisor":"Pending",
     "stateCoSupervisor":"stateCoSupervisor"
 }
 
@@ -217,7 +217,7 @@ Content-Type: application/json
 GET http://localhost:4000/requests/supervisor/requestedSupervisor
 
 ###
-PATCH http://localhost:4000/requests/62990e674b16a85940439776
+PATCH http://localhost:4000/requests/62990e694b16a8594043977a
 Content-Type: application/json
 
 {
