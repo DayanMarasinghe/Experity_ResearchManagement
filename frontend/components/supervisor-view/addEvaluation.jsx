@@ -85,7 +85,7 @@ class AddEvaluation extends Component{
                         Evaluations
                     </Typography>
                 </Breadcrumbs>
-                <div className="container">
+                <div className="container-i">
                     <p className="group-txt">Add Evaluations
                         <Button style={{ color: 'black', float: 'inline-end', fontSize: '10px', marginTop: '20px' }} variant="primary" as={RouterLink}
                             to="/markingSchemes">
