@@ -1,0 +1,10 @@
+iframe {
+    min-height: 600px;
+    /* or whatever */
+    max-height: 1000px;
+    /* or whatever */
+}
+
+.accordion{
+    max-height: 100%;
+}
