@@ -23,6 +23,8 @@ import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
 import MarkingSchemeView from './components/supervisor-view/markingScheme';
+import GroupChat from './components/student/groupChat/GroupChat'
+import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
 
 
 export default class App extends React.Component {
@@ -45,15 +47,15 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
-
                         <Route path='/pmdashboard' element={<PMDashboard/>}/>
                         <Route path='/pmevalgrpid' element={<PmPresentation/>}/>
                         <Route path='/pmtopiceval' element={<PmTopic/>}/>
-
                         <Route path='/documentsubmit' element={<DocumentSubmission/>}/>
                         <Route path='/addevaluation' element={<AddEvaluation />} />
                         <Route path='/accepttopic' element={<AcceptTopic />} />
                         <Route path='/markingSchemes' element={<MarkingSchemeView />} />
+                        <Route path='/creategroups' element={<GroupChat />} />
+                        <Route path='/requestsupervisor' element={<RequestSupervisors />} />
                     </Routes>
                     <Footer></Footer>
                 </Router>
