@@ -44,4 +44,7 @@ app.use('/requests', requestRouter)
 const panelMarkingRouter = require('./routes/pmMarkingRoute')
 app.use('/panelMarking',panelMarkingRouter)
 
+const markingSchemeRouter = require('./routes/markingscheme.router')
+app.use('/markings', markingSchemeRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))
