@@ -22,7 +22,7 @@ import PmTopic from './components/panelmember-view/pmTopicEval'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
-
+import MarkingSchemeView from './components/supervisor-view/markingScheme';
 
 
 export default class App extends React.Component {
@@ -53,8 +53,7 @@ export default class App extends React.Component {
                         <Route path='/documentsubmit' element={<DocumentSubmission/>}/>
                         <Route path='/addevaluation' element={<AddEvaluation />} />
                         <Route path='/accepttopic' element={<AcceptTopic />} />
-
-
+                        <Route path='/markingSchemes' element={<MarkingSchemeView />} />
                     </Routes>
                     <Footer></Footer>
                 </Router>

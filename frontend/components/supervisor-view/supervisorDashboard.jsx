@@ -68,7 +68,8 @@ class SupervisorDashboard extends Component {
                             <MDBCard className="card">
                                 <MDBCardImage src={evaluation} position="top"></MDBCardImage>
                                 <MDBCardBody className="card-body">
-                                    <Button variant="primary">
+                                    <Button variant="primary" as={Link}
+                                        to="/markingSchemes">
                                         View Marking Schemes
                                     </Button>
                                 </MDBCardBody>
