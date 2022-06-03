@@ -32,6 +32,9 @@ class userLogin extends Component{
         .then(response =>{
             console.log(response.data)
             alert("Logged in successfully")
+
+            sessionStorage.setItem("userID", response.data._id);
+
             if(response.data.role === "Supervisor"){
                 window.location.href = '/supervisordashboard'
             }

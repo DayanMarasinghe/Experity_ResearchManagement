@@ -8,31 +8,33 @@ const users = require("../model/userModel");
 /**
  * @router - create topics
  */
-// router.post('/', async(req, res) => {
-//     //creating the JS object
-//     const TopicRegisters = new TopicRegister({
-//         groupid: req.body.groupid,
-//         topic: req.body.topic,
-//         researchGroup: req.body.researchGroup,
-//         researchArea: req.body.researchArea,
-//         supervisor: req.body.supervisor,
-//         cosupervisor: req.body.cosupervisor,
-//         leadername : req.body.leadername,
-//         itnumber : req.body.itnumber,
-//         email : req.body.email
+router.post('/registertopic', async(req, res) => {
+    //creating the JS object
+    const TopicRegisters = new Creategroup({
+        groupid: req.body.groupid,
+        topic: req.body.topic,
+        researchGroup: req.body.researchGroup,
+        researchArea: req.body.researchArea,
+        supervisor: req.body.supervisor,
+        cosupervisor: req.body.cosupervisor,
+        groupleader : req.body.groupleader,
+        itnumber : req.body.itnumber,
+        email : req.body.email
 
-//     })
+    })
 
-//     try{
-//         const regtopic = await TopicRegisters.save()
-//         res.status(201).json(regtopic)
-//     } catch(err){
-//         res.status(400).json({
-//             message: err.message
-//         })
-//     }
+    try{
+        const regtopic = await TopicRegisters.save()
+        res.status(201).json(regtopic)
+    } catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
 
-// })
+})
+
+
 
 router.post("/creategroup", async (req, res) => {
   //creating the JS object
@@ -68,7 +70,7 @@ router.get("/getstudents/:id", async (req, res) => {
   console.log("hiiii to get");
   try {
     const id = req.params.id;
-    groups = await studentgroup.findById({ _id: id });
+    groups = await Creategroup.findById({ _id: id });
 
     const memberids = groups.members;
     const membersobj = [];
@@ -87,13 +89,43 @@ router.get("/getstudents/:id", async (req, res) => {
     };
     res.json(results);
 
-     res.json(groups);
+     
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
 });
+
+router.get("/getgroupstudent/:id", async (req, res) => {
+  console.log("getgroupstudent");
+  try {
+    let id = req.params.id;
+    groups = await Creategroup.find();
+    console.log(groups);
+    let groupId = ""
+    groups.forEach(group => {
+      for(let i = 0 ; i <  group.members.length ; i++){
+        if(group.members[i] == id){
+          groupId = group.groupid
+        }
+      }
+
+    });
+
+    if(groupId){
+      res.json(groupId);
+    }else{
+      res.json(false)
+    }
+    
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 
 router.get("/students", async (req, res) => {
   console.log("hiiii to get all");
@@ -107,20 +139,35 @@ router.get("/students", async (req, res) => {
   }
 });
 
-// router.get getSubject(id){
+//filter students to make a view in create groups UI
 
-//     try{
+router.get("/getstud", async (req, res) => {
+  console.log("hiiii to user");
+  try {
+    const groups = await users.find({"role" : "Student"});
+    res.json(groups);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
 
-//     constresSub =await SubjectModel.findById({_id:id}).populate('courses','name');
+//filter supervisors to make a view in create groups UI
 
-//     console.log(resSub);
+router.get("/getsuper", async (req, res) => {
+  console.log("hiiii to user");
+  try {
+    const groups = await users.find({"role" : "Supervisor"});
+    res.json(groups);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
 
-//     returnresSub;
 
-//     }catch(e) {
 
-//     }
-
-//     }
 
 module.exports = router;
