@@ -4,44 +4,43 @@ const studentgroupSchema = new mongoose.Schema({
     groupid: {
         type: String,
     },
-    groupleader:[{
-        studentid: String,
-        name: String,
-        specialization: String
-    }],
-    membertwo:[{
-        studentid: String,
-        name: String,
-        specialization: String
-    }],
-    memberthree: [{
-        studentid: String,
-        name: String,
-        specialization: String
-    }],
-    memberfour: [{
-        studentid: String,
-        name: String,
-        specialization: String
-    }],
     topic:{
-        type:String,
-    },
-    topicApproved:{
         type: String,
     },
-    researchGroup:{
-        type:String
-    },
-    researchArea:{
-        type: String
-    },
     supervisor:{
-        type: String
+        type:String,
     },
     cosupervisor:{
-        type: String
+        type:String,
+    },
+    groupleaderid:{
+        type: String,
+    },
+    groupleadername:{
+        type:String,
+    },
+    membertwoid:{
+        type:String,
+    },
+    membertwoname:{
+        type:String,
+    },
+    memberthreeid:{
+        type:String,
+    },
+    memberthreename:{
+        type:String
+    },
+    memberfourid:{
+        type:String,
+    },
+    memberfourname:{
+        type:String,
+    },
+    panelmember:{
+        type:String
     }
+
 })
 
 module.exports = mongoose.model('Group', studentgroupSchema)

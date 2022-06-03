@@ -28,6 +28,7 @@ handleSubmit =(e) =>{
 
     })
     .then(response =>{
+        window.location.href = 'studentdashboard'
         console.log(response)
     }).catch(error=>{
         console.error(error)
@@ -44,6 +45,7 @@ clearAll = () => {
 
         return (
         <div className="container" style={{width: 500}}>
+            <br></br>
             <h2>Register as Student</h2>
             <form id="regForm" onSubmit={this.handleSubmit}>
                 <br></br>
@@ -51,14 +53,17 @@ clearAll = () => {
                     <label for="name">Name</label>
                     <input type='text' class="form-control" name='name' value={name} onChange={this.handleChange} required></input>
                 </div>
+                <br></br>
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type='email' class="form-control" name='email' value={email} onChange={this.handleChange} required aria-describedby="emailHelp"></input>
                 </div>
+                <br></br>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type='password' class="form-control" name='password' value={password} onChange={this.handleChange} required></input>
                 </div>
+                <br></br>
                 <div class="form-group">
                     <label for="itnumber">IT No</label>
                     <input type='text' class="form-control" name='itnumber' value={itnumber} onChange={this.handleChange} required></input>
@@ -67,7 +72,7 @@ clearAll = () => {
                 <button type="submit" class="btn btn-primary" style={{width: 250}}>Submit</button>
                 <button class="btn btn-danger" style={{width: 200}} onClick={()=>this.clearAll()}>Clear All</button>
             </form>
-
+            <br></br>
             <br></br>
         </div>    
 

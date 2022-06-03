@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import staff from '../assets/images/staff.png';
 import student from '../assets/images/student.png';
+import './supervisor-view/supervisorDashboard.css';
 
 class userRegister extends Component{
 
@@ -34,6 +35,7 @@ class userRegister extends Component{
             </div>
             </div>
             </div>
+            <br></br><br></br><br></br>
         </div>
         );
     }

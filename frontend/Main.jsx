@@ -13,12 +13,18 @@ import TopicRegistration from './components/student/topicRegistration/TopicRegis
 import ResearchResources from './components/student/researchResources/researchResources';
 import DocumentSubmission from './components/student/documentSubmission/DocumentSubmission';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-dropzone-uploader/dist/styles.css'
+
+import PMDashboard from './components/panelmember-view/pmDashboard';
+import PmPresentation from './components/panelmember-view/pmPrstEvaluation'
+import PmTopic from './components/panelmember-view/pmTopicEval'
+
+// import 'react-dropzone-uploader/dist/styles.css'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
 import GroupChat from './components/student/groupChat/GroupChat'
 import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
+
 
 
 export default class App extends React.Component {
@@ -32,7 +38,7 @@ export default class App extends React.Component {
                     <Header></Header>
                     <Routes>
                         <Route path='/supervisordashboard' element={<SupervisorDashboard />} />
-                        <Route path='/userlogin' element={<UserLogin />} />
+                        <Route exact path='/' element={<UserLogin />} />
                         <Route path='/studentreg' element={<StudentReg/>}/>
                         <Route path='/userreg' element={<UserReg/>}/>
                         <Route path='/staffreg' element={<StaffReg/>}/>
@@ -41,11 +47,17 @@ export default class App extends React.Component {
                         <Route path='/studentheader' element={<StudentHeader/>}/>
                         <Route path='/topicregister' element={<TopicRegistration/>}/>
                         <Route path='/researchresources' element={<ResearchResources/>}/>
+
+                        <Route path='/pmdashboard' element={<PMDashboard/>}/>
+                        <Route path='/pmevalgrpid' element={<PmPresentation/>}/>
+                        <Route path='/pmtopiceval' element={<PmTopic/>}/>
+
                         <Route path='/documentsubmit' element={<DocumentSubmission/>}/>
                         <Route path='/addevaluation' element={<AddEvaluation />} />
                         <Route path='/accepttopic' element={<AcceptTopic />} />
                         <Route path='/creategroups' element={<GroupChat />} />
                         <Route path='/requestsupervisor' element={<RequestSupervisors />} />
+
 
                     </Routes>
                     <Footer></Footer>

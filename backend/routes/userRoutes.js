@@ -3,7 +3,6 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const User = require('../model/userModel')
-const Marking = require('../model/marking.model')
 
 const protect = require('../middleware/authMiddleware')
 
@@ -119,42 +118,39 @@ const generateToken = (id)=>{
     })
 }
 
-router.get('/markingScheme',async(req,res)=> {
-    try {
-        const markings = await Marking.find()
-        res.json(markings)
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
-    }
-})
+router.post('/admin', async(req,res) => {
+    const { name, email, password, role} = req.body
 
+    const userExists = await User.findOne({email})
 
+    if(userExists){
+        res.status(400).json({ message: 'invalid' }) 
+    }else{
 
-router.post('/evaluation', async (req, res) => {
-    //creating the JS object
-    const evaluation = new Evaluation({
-        evaluationType: req.body.evaluationType,
-        groupIdentifier: req.body.groupIdentifier,
-        groupid: req.body.groupid,
-        groupmarks: req.body.groupmarks,
-        groupleader: req.body.groupleader,
-        membertwo: req.body.membertwo,
-        memberthree: req.body.memberthree,
-        memberfour: req.body.memberfour
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password,salt)
+
+    const user = await User.create({
+        name,
+        email,
+        password: hashedPassword,
+        role
     })
 
-    try {
-        const newEvaluation = await evaluation.save()
-        res.status(201).json(newEvaluation)
-    } catch (err) {
-        res.status(400).json({
-            message: err.message
+    if(user){
+        res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        token: generateToken(user._id)
         })
     }
-
+    else{
+        res.status(400)
+        throw new Error("Invalid user data")
+    }
+}
 })
-
 
 module.exports = router

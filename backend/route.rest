@@ -8,40 +8,17 @@
 
 # {
 #     "groupid":"group6",
-#     "groupleader":[
-#         {
-#             "studentid":"leaderid",
-#             "name":"leadername",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "membertwo":[
-#         {
-#             "studentid":"membertwo",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "memberthree":[
-#         {
-#             "studentid":"memberthree",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
-#     "memberfour":[
-#         {
-#             "studentid":"memberfour",
-#             "name":"name",
-#             "specialization":"specialization"
-#         }
-#     ],
 #     "topic":"topic",
-#     "topicApproved":"topicApproved",
-#     "researchGroup":"researchGroup",
-#     "researchArea":"researchArea",
-#     "supervisor":"supervisor5",
-#     "cosupervisor":"cosupervisor5"
+#     "supervisor":"supervisor",
+#     "cosupervisor":"cosupervisor",
+#     "groupleaderid":"groupleaderid",
+#     "groupleadername":"groupleadername",
+#     "membertwoid":"membertwoid",
+#     "membertwoname":"membertwoname",
+#     "memberthreeid":"memberthreeid",
+#     "memberthreename":"memberthreename",
+#     "memberfourid":"memberfourid",
+#     "memberfourname":"memberfourname"
 # }
 
 # ###
@@ -261,7 +238,7 @@ Content-Type: application/json
 # ###
 # GET http://localhost:4000/evaluations
 
-<<<<<<< HEAD
+
 # POST http://localhost:4000/supervisors/savesupervisors
 # Content-Type: application/json
 
@@ -290,7 +267,7 @@ Content-Type: application/json
 GET http://localhost:4000/topicregister/getstudents/6296fb02b996c21294bea6e5
 
 # GET http://localhost:4000/topicregister/getstudents
-=======
+
 ###
 GET http://localhost:4000/adminUsers/getpresentation
 
@@ -313,6 +290,50 @@ Content-Type: application/json
        "Attributes": "Hello",
         "marks": 88 
 }
-   
->>>>>>> d2a2ecfe881a309ce0d1d18ef4981a2ae4dba003
+  
 
+
+###
+POST http://localhost:4000/evaluations
+Content-Type: application/json
+
+
+{
+    "groupid":"grp123",
+    "evaluationtype":"evaluationtype",
+    "groupmark":"groupmark",
+    "groupleaderid":"groupleaderid",
+    "groupleadermark":"groupleadermark",
+    "membertwoid":"membertwoid",
+    "membertwomark":"membertwomark",
+    "memberthreeid":"memberthreeid",
+    "memberthreemark":"memberthreemark",
+    "memberfourid":"memberfourid",
+    "memberfourmark":"memberfourmark",
+    "comments":"comments"
+}
+
+###
+POST http://localhost:4000/requests
+Content-Type: application/json
+
+{
+    "groupid":"GRP_03_WE_2022",
+    "topic":"Cultural expectations and practices",
+    "description":"Cultural expectations are the messages we internalize about what is and is not acceptable, given the standards of behavior and cultural norms put forth by our social systems. Social groups come in many forms, including our family, community, friends, workplace, and even affinity groups.",
+    "requestedSupervisor":"Saman",
+    "requestedCosupervisor":"requestedCosupervisor",
+    "stateSupervisor":"Pending",
+    "stateCoSupervisor":"stateCoSupervisor"
+}
+
+###
+GET http://localhost:4000/requests/supervisor/requestedSupervisor
+
+###
+PATCH http://localhost:4000/requests/62990e694b16a8594043977a
+Content-Type: application/json
+
+{
+    "stateSupervisor":"Approved"
+}

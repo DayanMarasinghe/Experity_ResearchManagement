@@ -8,7 +8,7 @@ function Header(){
             <Navbar color="light"
                 expand="md">
                 <NavbarBrand>
-                    <h2><b>Experity</b></h2>
+                    <h2 style={{color:"#0d6efd"}}><b>Experity</b></h2>
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck() { }}></NavbarToggler>
                 <Collapse navbar>
@@ -21,17 +21,29 @@ function Header(){
                         </NavItem>
                         <NavItem>
                             <NavLink href="/">
-                                Student Dahboard
+                                Student Dashboard
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/userlogin">
+                            <NavLink href="/pmdashboard">
+                                Panel Member Dashboard
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/">
                                 Login
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/userreg">
                                 SignUp
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                    <Nav className="ms-auto">
+                        <NavItem>
+                            <NavLink href="/">
+                                Logout
                             </NavLink>
                         </NavItem>
                     </Nav>

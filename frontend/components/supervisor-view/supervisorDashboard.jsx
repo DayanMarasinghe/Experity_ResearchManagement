@@ -15,7 +15,7 @@ class SupervisorDashboard extends Component {
     render() {
         return (
             <div>
-                <p className="welcome-txt">Welcome</p>
+                <p className="welcome-txt">Welcome Back</p>
                 {/*<div className="welcome-img">
                     <img src={welcome} style={{height : '250px', width:'0px'}}/>
                 </div>*/}

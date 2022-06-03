@@ -1,35 +1,42 @@
 const mongoose = require('mongoose');
 
 const evaluationScheme = new mongoose.Schema({
-    evaluationType:{
+    groupid: {
         type: String
     },
-    groupIdentifier:{
+    evaluationtype:{
         type: String
     },
-    groupid:{
+    groupmark:{
+        type:String
+    },
+    groupleaderid: {
+        type: String,
+    },
+    groupleadermark: {
+        type: String,
+    },
+    membertwoid: {
+        type: String,
+    },
+    membertwomark: {
+        type: String,
+    },
+    memberthreeid: {
+        type: String,
+    },
+    memberthreemark: {
         type: String
     },
-    groupmarks:[{
-        area: String,
-        marks: String
-    }],
-    groupleader:[{
-        area:String,
-        marks:String
-    }],
-    membertwo: [{
-        area: String,
-        marks: String
-    }],
-    memberthree:[{
-        area: String,
-        marks: String
-    }],
-    memberfour: [{
-        area: String,
-        marks: String
-    }],
+    memberfourid: {
+        type: String,
+    },
+    memberfourmark: {
+        type: String,
+    },
+    comments:{
+        type: String,
+    }
 })
 
 module.exports = mongoose.model('Evaluation', evaluationScheme);
