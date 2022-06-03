@@ -4,13 +4,19 @@ const creategroupschema = new mongoose.Schema({
     groupid: {
         type: String,
     },
-    groupleader:[{
-        studentid: String,
-        name: String,
-        email : String
-        
-    }],
    
+    groupleader : {
+        type : String,
+    },
+
+    itnumber : {
+        type : String,
+    },
+
+    email : {
+        type : String,
+    },
+
     topic:{
         type:String
     },
@@ -39,7 +45,7 @@ const creategroupschema = new mongoose.Schema({
     
           ref: "users",
         },
-      ],
+    ],
 
    
 })

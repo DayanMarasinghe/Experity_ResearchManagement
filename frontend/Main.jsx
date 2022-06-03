@@ -22,6 +22,8 @@ import PmTopic from './components/panelmember-view/pmTopicEval'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
+import GroupChat from './components/student/groupChat/GroupChat'
+import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
 
 
 
@@ -53,6 +55,8 @@ export default class App extends React.Component {
                         <Route path='/documentsubmit' element={<DocumentSubmission/>}/>
                         <Route path='/addevaluation' element={<AddEvaluation />} />
                         <Route path='/accepttopic' element={<AcceptTopic />} />
+                        <Route path='/creategroups' element={<GroupChat />} />
+                        <Route path='/requestsupervisor' element={<RequestSupervisors />} />
 
 
                     </Routes>

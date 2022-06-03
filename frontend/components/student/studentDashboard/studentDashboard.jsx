@@ -19,21 +19,17 @@ export default function StudentDashboard() {
       <StudentHeader />
       <CardGroup>
         <Card style={{ marginRight: 40, marginLeft: 40, marginBottom: 100 }}>
-          <CardImg alt="Card image cap" src={logo} top width="100%" />
+          <CardImg alt="Card image cap" src="https://static.sliit.lk/wp-content/uploads/2019/11/27095049/SLIIT-Master-of-Philosophy-MPhil.jpg" top width="100%" />
           <CardBody>
-            <CardTitle style={{ fontSize: 17 }} tag="h5">
-              STUDENT GROUPS
-            </CardTitle>
+           
 
             <a
-              href="/userlogin"
+              href="/creategroups"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <CardText>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </CardText>
+               <CardTitle style={{ fontSize: 17 }} tag="h5">
+              STUDENT GROUPS
+            </CardTitle>
             </a>
           </CardBody>
         </Card>
@@ -41,48 +37,40 @@ export default function StudentDashboard() {
         <Card style={{ marginRight: 30 }}>
           <CardImg
             alt="Card image cap"
-            src="https://picsum.photos/318/180"
+            src="https://static.sliit.lk/wp-content/uploads/2018/01/Foss-Community.jpg"
             top
             width="100%"
           />
           <CardBody>
-            <CardTitle style={{ fontSize: 17 }} tag="h5">
-              TOPIC REGISTRATION
-            </CardTitle>
+            
 
             <a
               href="/topicregister"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <CardText>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </CardText>
+              <CardTitle style={{ fontSize: 17 }} tag="h5">
+              TOPIC REGISTRATION
+            </CardTitle>
             </a>
           </CardBody>
         </Card>
         <Card>
           <CardImg
             alt="Card image cap"
-            src="https://picsum.photos/318/180"
+            src="https://bmkltsly13vb.compat.objectstorage.ap-mumbai-1.oraclecloud.com/cdn.ft.lk/ftadmin/wp-content/uploads/2016/10/25205753/Untitled-4152.jpg"
             top
             width="100%"
           />
           <CardBody>
-            <CardTitle style={{ fontSize: 17 }} tag="h5">
-              RESEARCH RESOURCES
-            </CardTitle>
+           
 
             <a
               href="/researchresources"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <CardText>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </CardText>
+               <CardTitle style={{ fontSize: 17 }} tag="h5">
+              RESEARCH RESOURCES
+            </CardTitle>
             </a>
           </CardBody>
         </Card>
@@ -90,24 +78,20 @@ export default function StudentDashboard() {
         <Card style={{ marginRight: 30, marginLeft: 30 }}>
           <CardImg
             alt="Card image cap"
-            src="https://picsum.photos/318/180"
+            src="https://static.sliit.lk/wp-content/uploads/2018/01/Faculty-of-computing-student-community-FCSC-2.jpg"
             top
             width="100%"
           />
           <CardBody>
-            <CardTitle style={{ fontSize: 17 }} tag="h5">
-              DOCUMENT SUBMISSION
-            </CardTitle>
+           
 
             <a
               href="/documentsubmit"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <CardText>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </CardText>
+               <CardTitle style={{ fontSize: 17 }} tag="h5">
+              DOCUMENT SUBMISSION
+            </CardTitle>
             </a>
           </CardBody>
         </Card>

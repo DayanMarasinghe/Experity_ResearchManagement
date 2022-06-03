@@ -1,36 +1,29 @@
 const express = require('express');
 const router = express.Router();
-const Supervisor = require('../model/supervisors.model')
+const Supervisor = require('../model/requestSupervisors.model')
 
-router.get('/', async (req, res) => {
-    try {
-        const supervisors = await Supervisor.find()
-        res.json(supervisors)
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
-    }
-})
 
-router.post('/savesupervisors', async (req, res) => {
+router.post("/reqsupervisors", async (req, res) => {
     //creating the JS object
-    const supervisor = new Supervisor({
-        supervisor_name: req.body.supervisor_name,
-        specialization: req.body.specialization,
-        email: req.body.email
-    })
-
+    console.log("hiiii");
+    const createsupers = new Supervisor({
+      groupid: req.body.groupid,
+      topic : req.body.topic,
+      reqsupervisors: req.body.reqsupervisors,
+      reqcosupervisors : req.body.reqcosupervisors
+    });
+  
     try {
-        const newSupervisor = await supervisor.save()
-        res.status(201).json(newSupervisor)
+      const newSuper = await createsupers.save();
+      res.status(201).json(newSuper);
     } catch (err) {
-        res.status(400).json({
-            message: err.message
-        })
+      res.status(400).json({
+        message: err.message,
+      });
     }
+  });
 
-})
+  
 
 
 
