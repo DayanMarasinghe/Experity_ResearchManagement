@@ -21,6 +21,12 @@ const requestScheme = new mongoose.Schema({
     },
     stateCoSupervisor: {
         type: String
+    },
+    panelmember: {
+        type: String
+    },
+    panelmembercomment: {
+        type: String
     }
 })
 

@@ -24,12 +24,18 @@ constructor(props){
       memberthreename:'',
       memberfourid:'',
       memberfourname:'',
+      groupleadermark:'',
+      membertwomark:'',
+      memberthreemark:'',
+      memberfourmark:'',
+      evaluationtype:'Presentation',
+      selectedgroup:'',
     }
 }
 
 componentDidMount(){
   
-  const user = localStorage.getItem("username");
+  const user = localStorage.getItem("panelmember");
     fetch(`http://localhost:4000/panelMarking/group/${user}`)
     .then((res) => res.json())
     .then((json) => {
@@ -41,24 +47,35 @@ componentDidMount(){
 }
 
 handleChange =(e) =>{
-
+//alert(this.state.groupleaderid)
     this.setState({
         [e.target.name]: e.target.value,
     })
 }
 
-// handleSubmit =(e) =>{
-//     e.preventDefault()
-//     axios.post('http://localhost:4000/users/staff',this.state,{
+handleSubmit = (e) => {
 
-//     })
-//     .then(response =>{
-//         console.log(response)
-//     }).catch(error=>{
-//         console.error(error)
-//         alert("User Already Exists")
-//     })
-// }
+        let obj = {groupid:this.state.selectedgroup.groupid,evaluationtype:this.state.evaluationtype,groupleaderid:this.state.selectedgroup.groupleaderid,groupleadermark:this.state.groupleadermark,membertwoid:this.state.selectedgroup.membertwoid,membertwomark:this.state.membertwomark,memberthreeid:this.state.selectedgroup.memberthreeid,memberthreemark:this.state.memberthreemark,memberfourid:this.state.selectedgroup.memberfourid,memberfourmark:this.state.memberfourmark}
+        console.log('state',this.state.selectedgroup)
+
+  e.preventDefault()
+  axios.post('http://localhost:4000/evaluations', obj, {})
+      .then(response => {
+          console.log(response);
+          alert('Evaluation added successfully!');
+          this.setState({selectedgroup:"",groupleadermark:"",membertwomark:"",memberthreemark:"",memberfourmark:""})
+      })
+      .catch(error => {
+          console.error(error);
+          alert('An error occured')
+      })
+}
+
+accordionHandle= (grp) => {
+    // alert("hit")
+    // console.log("group details", grp)
+
+}
 
     render(){
       const {DataisLoaded, groups} = this.state;
@@ -79,7 +96,12 @@ handleChange =(e) =>{
         <h5>Group Details</h5>
         {
           groups.map((grp) => (
-        <Accordion>
+        <Accordion onClick={()=>{this.accordionHandle(grp)
+            if(this.state.selectedgroup._id != grp._id){
+                this.setState({selectedgroup:"",groupleadermark:"",membertwomark:"",memberthreemark:"",memberfourmark:""})
+            }
+            this.setState({selectedgroup:grp})
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -89,8 +111,9 @@ handleChange =(e) =>{
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <table class="table table-bordered" >
+                    {(this.state.selectedgroup._id==grp._id) &&
                     <tbody>
                         <tr>
                             <th>IT Number</th>
@@ -100,24 +123,25 @@ handleChange =(e) =>{
                         <tr>
                             <td>{grp.groupleaderid}</td>
                             <td>{grp.groupleadername}</td>
-                            <td><input required></input></td>
+                            <td><input type="text" name="groupleadermark" value={this.state.groupleadermark} onChange={this.handleChange} required></input></td>
                         </tr>
                         <tr>
                             <td>{grp.membertwoid}</td>
                             <td>{grp.membertwoname}</td>
-                            <td><input required></input></td>
+                            <td><input type="text" name="membertwomark" value={this.state.membertwomark} onChange={this.handleChange} required></input></td>
                         </tr>
                         <tr>
                             <td>{grp.memberthreeid}</td>
                             <td>{grp.memberthreename}</td>
-                            <td><input required></input></td>
+                            <td><input type="text" name="memberthreemark" value={this.state.memberthreemark} onChange={this.handleChange} required></input></td>
                         </tr>
                         <tr>
                             <td>{grp.memberfourid}</td>
                             <td>{grp.memberfourname}</td>
-                            <td><input required></input></td>
+                            <td><input type="text" name="memberfourmark" value={this.state.memberfourmark} onChange={this.handleChange} required></input></td>
                         </tr>
                     </tbody>
+                    }
                 </table>
                 <button type="submit" class="btn btn-primary">Enter</button>
             </form>

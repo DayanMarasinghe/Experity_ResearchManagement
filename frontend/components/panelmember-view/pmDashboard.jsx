@@ -6,7 +6,7 @@ import eval from '../../assets/images/Videocall.png';
 
 class pmDashboard extends Component {
     render() {
-        const username = localStorage.getItem("username");
+        const username = localStorage.getItem("panelmember");
         return (
             <div>
                 <p className="welcome-txt">Welcome {username}</p>
