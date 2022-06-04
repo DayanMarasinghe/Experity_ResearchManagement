@@ -44,4 +44,14 @@ app.use('/requests', requestRouter)
 const panelMarkingRouter = require('./routes/pmMarkingRoute')
 app.use('/panelMarking',panelMarkingRouter)
 
+const documentUploadRouter = require('./routes/documentUplaod.route')
+app.use('/documentupload', documentUploadRouter)
+
+
+const markingSchemeRouter = require('./routes/markingscheme.router')
+app.use('/markings', markingSchemeRouter)
+
+const submittedDocRouter = require('./routes/submittedDoc.route')
+app.use('/submitted', submittedDocRouter)
+
 app.listen(4000, () => console.log('Server started on port 4000..'))

@@ -337,3 +337,23 @@ Content-Type: application/json
 {
     "stateSupervisor":"Approved"
 }
+
+###
+GET http://localhost:4000/markings/viva
+
+###
+GET http://localhost:4000/markings/document
+
+###
+POST http://localhost:4000/submitted
+Content-Type: application/json
+
+{
+    "groupid":"GRP_WDE_45_2022",
+    "assignment":"Charter",
+    "documentLink":"https://docs.google.com/document/d/1aknvu6H35PixQQEiP5lNl4_Jn1tOWF6_gs0KYX9jE2E/edit?usp=sharing",
+    "supervisor":"Saman"
+}
+
+###
+GET http://localhost:4000/submitted/supervisor/Saman

@@ -45,7 +45,7 @@ class userLogin extends Component{
                 window.location.href = '#'
             }
 
-            localStorage.setItem("username", response.data.name)
+            localStorage.setItem("panelmember", response.data.name)
 
         }).catch(error=>{
             console.error(error)
@@ -105,7 +105,7 @@ class userLogin extends Component{
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" value={password} onChange={this.handleChange} required />
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button id="login" type="submit" class="btn btn-primary">Login</button>
                     </form>
                     <br></br>
                 </div>
