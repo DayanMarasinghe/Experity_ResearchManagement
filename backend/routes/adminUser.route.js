@@ -3,6 +3,8 @@ const Presentation = require('../model/presentation.model')
 const Viva = require('../model/viva.model')
 const Document = require('../model/document.model')
 const User = require('../model/userModel')
+const Groups = require('../model/studentgroup.model')
+const Submission = require('../model/submission.model')
 
 const router = express.Router();
 
@@ -22,6 +24,112 @@ router.get('/allUser', async (req, res) => {
 })
 
 /**
+ * @router - get all groups
+ */
+ router.get('/adgroups', async (req, res) => {
+    try {
+        const group = await Groups.find()
+        res.json(group)
+        console.log(group)
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+})
+
+/**
+ * @router - get all groups
+ */
+ router.get('/adpanel', async (req, res) => {
+    try {
+        const user = await User.find({ role: 'Panel Member'})
+        res.json(user)
+        console.log(user)
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+})
+
+router.patch('/addpanel/:id/:name', async(req, res) => {
+    //check the relevent feild to be updated
+    try {
+      const groupid = req.params.id;
+      const usename = req.params.name;
+      let obj = {panelmember: usename}
+      const group = await Groups.findByIdAndUpdate(groupid,obj);
+    res.status(200).json({
+        message: "Success"
+    })
+    } catch (error) {
+      res.status(400).json({message: err.message})
+    }
+    
+  }) 
+
+
+
+
+//Crete submission marking scheme
+router.post('/submission', async (req, res) => {
+    //creating the JS object
+    const submission = new Submission({
+        submissionname: req.body.submissionname,
+        description: req.body.description,
+        deadline: req.body.deadline,
+        document: req.body.document,
+        template: req.body.template,
+        markingscheme: req.body.markingscheme
+        
+    })
+
+    try {
+        const newsubmission = await submission.save()
+        res.status(201).json(newsubmission)
+    } catch (err) {
+        res.status(400).json({
+            message: err.message
+        })
+    }
+
+})
+
+
+
+/**
+ * @router - get all submissions
+ */
+ router.get('/getsubmission', async (req, res) => {
+    try {
+        const  submission = await Submission.find()
+        res.json(submission)
+        console.log(submission)
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+})
+
+router.delete('/delsubmission/:id', async(req, res, ) =>  {
+
+    console.log("Hit delete Submission")
+    const subID = req.params.id;
+    
+    await Submission.findOneAndDelete(subID)
+    console.log("delete: req.body: " + JSON.stringify(req.body));
+    res.json(req.body);
+  })
+
+
+
+
+
+
+
+/**
  * @router - filtered users
  */
 router.get('/usercategory/:filter', async (req, res) => {
@@ -39,32 +147,71 @@ router.get('/usercategory/:filter', async (req, res) => {
     }
 })
 
-router.patch('/:id', async(req, res) => {
-    //check the relevent feild to be updated
-   
-    const userID = req.params.id;
+router.get('/userup/:id', async (req, res) => {
+
+    const ID = req.params.id;
 
     try {
-      //update the JS object
-        const userOB = new User({
-        name: req.body.name,
-        role: req.body.role,
-        specialisation: req.body.specialisation,
-        
-    })
-   
-      const user = await User.updateMany({"_id":userID}, [ {$set : { "name": userOB.name, "role":userOB.role, "specialisation": userOB.specialisation} } ]);
-  
-    } catch (err) {
-      res.status(400).json({message: err.message})
+        const users = await User.find({"_id": ID})
+        res.json(users)
+        console.log(users) 
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
     }
+})
+
+
+
+  router.put('/userUpdate/:id', async(req, res) => {
+    //check the relevent feild to be updated
+    
+    console.log("User Update function ");
+
+    let id = req.params.id;
+
+    let dataSet =req.body;
+
+    console.log("ID:",id);
+
+    console.log("Data:",dataSet);
+
+    await User.findByIdAndUpdate(id,dataSet)
+
+    .then((data)=> {
+
+        console.log(data);
+
+        res.status(200).send({
+
+        data: data,
+
+    });
+
+    })
+
+    .catch((error)=> {
+
+    res.status(500).send({
+
+    error: error.message,
+
+    });
+
+});
+
     
   })
 
- router.delete('/:id', async(req, res, ) =>  {
 
+
+ router.delete('/deluser/:id', async(req, res, ) =>  {
+
+    console.log("Hit delete User")
     const userID = req.params.id;
-    await User.deleteOne( {"_id": userID } )
+    //await User.deleteOne( {"_id": userID } )
+    await User.findByIdAndDelete(userID)
     console.log("delete: req.body: " + JSON.stringify(req.body));
     res.json(req.body);
   })
@@ -89,125 +236,8 @@ router.patch('/:id', async(req, res) => {
 
 })
 
-  //Crete document marking scheme
-  router.post('/document', async (req, res) => {
-    //creating the JS object
-    const document = new Document({
-        Attributes: req.body.Attributes,
-        marks: req.body.marks,
-        
-    })
+ 
 
-    try {
-        const Newdocument = await document.save()
-        res.status(201).json(Newdocument)
-    } catch (err) {
-        res.status(400).json({
-            message: err.message
-        })
-    }
-
-})
-
-  //Crete viva marking scheme
-  router.post('/viva', async (req, res) => {
-    //creating the JS object
-    const viva = new Viva({
-        Attributes: req.body.Attributes,
-        marks: req.body.marks,
-        
-    })
-
-    try {
-        const Newviva = await viva.save()
-        res.status(201).json(Newviva)
-    } catch (err) {
-        res.status(400).json({
-            message: err.message
-        })
-    }
-
-})
-
-//update marking scheme
-
-router.patch('/updateviva/:id', async (req, res) => {
-    
-    const ID = req.params.id;
-
-    try {
-    //update the JS object
-    const viva = new Viva({
-        Attributes: req.body.Attributes,
-        marks: req.body.marks,
-        
-    })
-
-    const updateviva = await Viva.updateMany({"_id":ID}, [ {$set : { "Attributes": viva.Attributes, "marks":viva.marks} } ]);
-
-    } catch (err) {
-    res.status(400).json({message: err.message})
-    }
-
-})
-
-router.patch('/updatedocument/:id', async (req, res) => {
-    
-    const ID = req.params.id;
-
-    try {
-    //update the JS object
-    const document = new Document({
-        Attributes: req.body.Attributes,
-        marks: req.body.marks,
-        
-    })
-
-    const updatedocument = await Document.updateMany({"_id":ID}, [ {$set : { "Attributes": document.Attributes, "marks":document.marks} } ]);
-
-    } catch (err) {
-    res.status(400).json({message: err.message})
-    }
-
-})
-
-router.patch('/updatepresenatation/:id', async (req, res) => {
-    
-    const ID = req.params.id;
-
-    try {
-    //update the JS object
-    const presenatation = new Presentation({
-        Attributes: req.body.Attributes,
-        marks: req.body.marks,
-        
-    })
-
-    const updatePresentation = await Presentation.updateMany({"_id":ID}, [ {$set : { "Attributes": presenatation.Attributes, "marks":presenatation.marks} } ]);
-
-    } catch (err) {
-    res.status(400).json({message: err.message})
-    }
-
-})
-
-
-/**
- * @router - get all Marking
- */
-
-//get presentation marking data
- router.get('/getpresentation', async (req, res) => {
-    try {
-        const presenatation = await Presentation.find()
-        res.json(presenatation)
-        console.log(presenatation)
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
-    }
-})
 
 //get Viva marking data
 router.get('/getviva', async (req, res) => {

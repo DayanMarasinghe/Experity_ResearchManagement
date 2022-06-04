@@ -12,6 +12,17 @@ import StudentHeader from './components/student/header/studentHeader';
 import TopicRegistration from './components/student/topicRegistration/TopicRegistration';
 import ResearchResources from './components/student/researchResources/researchResources';
 import DocumentSubmission from './components/student/documentSubmission/DocumentSubmission';
+
+import AdminUSDash from './components/adminUserDashboard';
+import AdminDashbo from './components/adminMarkinDashboard';
+import AdminGroups from './components/admingroups';
+import Submission from './components/createsubmission';
+import Viewsubmission from './components/viewsubmission';
+import Addashboard from './components/admindash';
+
+
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import PMDashboard from './components/panelmember-view/pmDashboard';
@@ -24,6 +35,7 @@ import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
 import GroupChat from './components/student/groupChat/GroupChat'
 import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
+
 
 
 
@@ -57,6 +69,18 @@ export default class App extends React.Component {
                         <Route path='/accepttopic' element={<AcceptTopic />} />
                         <Route path='/creategroups' element={<GroupChat />} />
                         <Route path='/requestsupervisor' element={<RequestSupervisors />} />
+
+                        <Route path='/adminUSdashboard' element={<AdminUSDash/>}/>
+                        <Route path='/adminmarkingshboard' element={<AdminDashbo/>}/>
+                        <Route path='/adminGroup' element={<AdminGroups/>}/>
+                        <Route path='/submission' element={<Submission/>}/>
+
+                        <Route path='/viewsubmission' element={<Viewsubmission/>}/>
+                        <Route path='/addash' element={<Addashboard/>}/>
+                        
+                        
+                        
+                        
 
 
                     </Routes>
