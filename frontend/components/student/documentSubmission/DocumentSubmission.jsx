@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 import React from "react";
 // import 'react-dropzone-uploader/dist/styles.css'
 // import Dropzone from 'react-dropzone-uploader'
-=======
 import React ,{useState} from "react";
 import { Button, Form } from "react-bootstrap";
 import { storage } from "../firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useState } from 'react';
->>>>>>> 0408896 (request supervisor BE and UI)
 
 const DocumentSubmission = () => {
 

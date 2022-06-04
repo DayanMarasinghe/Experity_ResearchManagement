@@ -89,7 +89,6 @@ class SupervisorDashboard extends Component {
                         </MDBCol>
                     </MDBRow>
                 </div>
-                <Button className="logout-btn" variant="danger">Logout</Button>
             </div>
         );
     }
