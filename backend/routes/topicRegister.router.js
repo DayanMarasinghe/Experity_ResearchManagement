@@ -66,6 +66,7 @@ router.get("/getstudents", async (req, res) => {
   }
 });
 
+//take details of the students in the group using object id
 router.get("/getstudents/:id", async (req, res) => {
   console.log("hiiii to get");
   try {
@@ -97,24 +98,71 @@ router.get("/getstudents/:id", async (req, res) => {
   }
 });
 
+//take details of the students in the group using group id
+router.get("/getstudentsbyID/:id", async (req, res) => {
+  console.log("hiiii to get");
+  try {
+    const id = req.params.id;
+    groups = await Creategroup.findOne({ groupid: id });
+    // console.log("groupss", groups);
+    const memberids = groups.members;
+    const membersobj = [];
+
+    // console.log("groupss member ids", memberids);
+
+    for (let i = 0; memberids.length > i; i++) {
+      let id = memberids[i];
+      student = await users.findById({ _id: id });
+
+      console.log("groupss member ids", student);
+
+       membersobj.push(student);
+    }
+
+    const results =  {
+      id: groups._id,
+      groupid: groups.groupid,
+      members: membersobj,
+    };
+    res.json(results);
+
+     
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+
+
+//take a specific group id using students object id
 router.get("/getgroupstudent/:id", async (req, res) => {
   console.log("getgroupstudent");
   try {
     let id = req.params.id;
     groups = await Creategroup.find();
     console.log(groups);
+    let groupid = ""
     let groupId = ""
     groups.forEach(group => {
       for(let i = 0 ; i <  group.members.length ; i++){
         if(group.members[i] == id){
+          console.log(groupid + "lhfsdlj")
           groupId = group.groupid
+          groupid = group._id
+
         }
       }
 
     });
+  let obj = {
+    id : groupid,
+    gid : groupId
+  }
 
     if(groupId){
-      res.json(groupId);
+      res.json(obj);
     }else{
       res.json(false)
     }

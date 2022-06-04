@@ -2,6 +2,7 @@ import React from "react";
 import { Accordion } from "react-bootstrap";
 import assess from "../images/assess.png";
 import { MDBContainer, MDBIframe } from "mdbreact";
+import ReactPlayer from 'react-player'
 
 function ResearchResources() {
   return (
@@ -16,7 +17,7 @@ function ResearchResources() {
         <Accordion.Item eventKey="1">
           <Accordion.Header>Research Clusters</Accordion.Header>
           <Accordion.Body>
-            <a href="https://mysliit-my.sharepoint.com/:x:/g/personal/cdap_sliit_lk/EVxmt2cWgIFNn86-b8oeFUUBBKwdEmUCxCOJ2wNNqZRrHg?e=cfWxG7"></a>
+            <a href="https://mysliit-my.sharepoint.com/:x:/g/personal/cdap_sliit_lk/EVxmt2cWgIFNn86-b8oeFUUBBKwdEmUCxCOJ2wNNqZRrHg?e=cfWxG7">Get Research Clusters</a>
        
             
           </Accordion.Body>
@@ -24,9 +25,10 @@ function ResearchResources() {
         <Accordion.Item eventKey="2">
           <Accordion.Header>Brainstorming Sessions</Accordion.Header>
           <Accordion.Body>
-          <MDBContainer style={{width : 50}} className="text-center" >
-              <MDBIframe src="https://www.youtube.com/embed/v64KOxKVLVg" />
-            </MDBContainer>
+          {/* <MDBContainer className="text-center" >
+              <MDBIframe src="https://lecturecapture.sliit.lk/neplayer.php?id=azdhN0hpSDA2U180NzQyMQ==&full=ZnVsbA==" />
+            </MDBContainer> */}
+            {/* <ReactPlayer url= 'https://www.youtube.com/watch?v=PDjS20kic54'></ReactPlayer> */}
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">

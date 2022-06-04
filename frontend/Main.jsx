@@ -17,15 +17,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PMDashboard from './components/panelmember-view/pmDashboard';
 import PmPresentation from './components/panelmember-view/pmPrstEvaluation';
 import PmTopic from './components/panelmember-view/pmTopicEval';
-
-// import 'react-dropzone-uploader/dist/styles.css'
 import GroupView from './components/supervisor-view/groupview';
 import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
 import MarkingSchemeView from './components/supervisor-view/markingScheme';
 import GroupChat from './components/student/groupChat/GroupChat';
 import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
+import ViewDocument from './components/student/viewDocuments/ViewDocument';
 import SubmittedDocs from './components/supervisor-view/submittedDoc';
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -56,7 +56,9 @@ export default class App extends React.Component {
                         <Route path='/markingSchemes' element={<MarkingSchemeView />} />
                         <Route path='/creategroups' element={<GroupChat />} />
                         <Route path='/requestsupervisor' element={<RequestSupervisors />} />
-                        <Route path='/studentdocs' element={<SubmittedDocs />} />
+                        <Route path='/viewdocument' element={<ViewDocument />} />
+                       <Route path='/studentdocs' element={<SubmittedDocs />} />
+
                     </Routes>
                     <Footer></Footer>
                 </Router>

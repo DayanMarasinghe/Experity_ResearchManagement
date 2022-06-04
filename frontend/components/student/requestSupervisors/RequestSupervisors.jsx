@@ -12,14 +12,11 @@ import {
   Label,
 } from "reactstrap";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
+
 
 class GroupChat extends Component {
-  state = { selectedOption: null };
+  state = { selectedOption: null, };
+  
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption }, () =>
@@ -27,6 +24,15 @@ class GroupChat extends Component {
     );
   };
 
+  // setCosupervisors : [],
+
+  handleCosuperChange = (setCosupervisors) => {
+    this.setState({ setCosupervisors }, () =>
+      console.log(`Option selected:`, this.state.setCosupervisors)
+    );
+  };
+
+   
   handlerChanged = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -34,8 +40,13 @@ class GroupChat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      setStudents: [],
+      setSupervisors: [],
+      setCosupervisors : [],
       groupid: "",
+      topic : "",
+      success : false,
+      error : false
+      
     };
   }
 
@@ -48,19 +59,18 @@ class GroupChat extends Component {
       .get(`http://localhost:4000/topicregister/getsuper`)
       .then((res) => {
         console.log(res.data, "response from front");
-        this.setState({ setStudents: res.data });
+        this.setState({ setSupervisors: res.data });
 
-        //   { value: "chocolate", label: "Chocolate" },
-
-        let students = [];
-        students = res.data;
+        let supervisor = [];
+        supervisor = res.data;
+        console.log("super list", res.data);
 
         let option = [];
-        students.forEach((stu) => {
-          console.log(stu);
+        supervisor.forEach((sup) => {
+          console.log(sup);
           let obj = {
-            value: stu._id,
-            label: stu.itnumber,
+            value: sup._id,
+            label: sup.name,
           };
 
           option.push(obj);
@@ -74,33 +84,29 @@ class GroupChat extends Component {
   }
 
   saveGroup = () => {
-    alert("button clicked");
     if (this.state.selectedOption && this.state.groupid) {
-      if (this.state.selectedOption.length != 4) {
-        alert("groups must be consist of 4 members only");
-      } else {
-        console.log("final options", this.state.selectedOption);
-        console.log("setGroupId", this.state.groupid);
-        // {
-        //     "groupid":"group6",
-        //     "members" : [
-        //         "6296facab996c21294bea6df",
-        //         "6296fb02b996c21294bea6e5"
+    
 
-        //     ]
-        // }
+        let selectedsupervisors = this.state.selectedOption;
+        let selectedCosupervisors = this.state.setCosupervisors
+        let supervisorids = [];
+        let cosupersid = [];
 
-        let selectedStudents = this.state.selectedOption;
-        let memberids = [];
-
-        selectedStudents.forEach((std) => {
+        selectedsupervisors.forEach((std) => {
           console.log(std);
-          memberids.push(std.value);
+          supervisorids.push(std.value);
+        });
+
+        selectedCosupervisors.forEach((std) => {
+          console.log(std);
+          cosupersid.push(std.value);
         });
 
         let obj = {
           groupid: this.state.groupid,
-          members: memberids,
+          reqsupervisors : supervisorids,
+          reqcosupervisors: cosupersid,
+          topic : this.state.topic
         };
 
         fetch("http://localhost:4000/supervisors/reqsupervisors", {
@@ -109,17 +115,31 @@ class GroupChat extends Component {
           body: JSON.stringify(obj),
         }).then(() => {
           console.log(obj);
-          alert("successfully added");
+          this.setState({success : true})
         });
-      }
+      
     } else {
-      alert("you need to select students and add a group name");
+      this.setState({error : true})
+      
     }
   };
 
   render() {
+
     return (
+      
       <div className="container">
+         {
+          this.state.success && <div class="alert alert-success" role="alert" style={{marginTop: 30}}>
+          requests have been sent successfully!
+        </div>
+        } 
+
+        {
+          this.state.error && <div class="alert alert-danger" role="alert" style={{marginTop: 30}}>
+          Please fill the fields with relevant details!
+        </div>
+        }
         <Form style={{ marginBottom: 200, marginTop: 100 }}>
           <FormGroup row>
             <Label for="" sm={2}>
@@ -132,6 +152,23 @@ class GroupChat extends Component {
                 value={this.state.groupid}
                 onChange={this.handlerChanged}
                 placeholder="Enter the Group ID"
+                type="text"
+                required
+              />
+            </Col>
+          </FormGroup>
+
+          <FormGroup row>
+            <Label for="" sm={2}>
+             Topic
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="exampleEmail"
+                name="topic"
+                value={this.state.topic}
+                onChange={this.handlerChanged}
+                placeholder="Enter the topic"
                 type="text"
                 required
               />
@@ -162,8 +199,8 @@ class GroupChat extends Component {
             <Col sm={10}>
               {this.state.options && (
                 <Select
-                  value={this.state.selectedOption}
-                  onChange={this.handleChange}
+                  value= {this.state.setCosupervisors}
+                  onChange={this.handleCosuperChange}
                   options={this.state.options}
                   isMulti={true}
                   isSearchable={true}
@@ -181,9 +218,9 @@ class GroupChat extends Component {
             >
               <Button
                 onClick={this.saveGroup}
-                style={{ marginBottom: 50, paddingLeft: 30, paddingRight: 30 }}
+                style={{ marginBottom: 50, paddingLeft: 30, paddingRight: 30, marginTop : 20 }}
               >
-                Submit
+                Send Request
               </Button>
             </Col>
           </FormGroup>
