@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 })
 
 /**
- * @router - get one movie using movie name
+ * @router - get one marking using marking name
  */
 router.get('/getmarking/:schemaType', async (req, res) => {
     let marking
