@@ -12,6 +12,17 @@ import StudentHeader from './components/student/header/studentHeader';
 import TopicRegistration from './components/student/topicRegistration/TopicRegistration';
 import ResearchResources from './components/student/researchResources/ResearchResources';
 import DocumentSubmission from './components/student/documentSubmission/DocumentSubmission';
+
+import AdminUSDash from './components/adminUserDashboard';
+import AdminDashbo from './components/adminMarkinDashboard';
+import AdminGroups from './components/admingroups';
+import Submission from './components/createsubmission';
+import Viewsubmission from './components/viewsubmission';
+import Addashboard from './components/admindash';
+
+
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import PMDashboard from './components/panelmember-view/pmDashboard';
@@ -25,6 +36,7 @@ import GroupChat from './components/student/groupChat/GroupChat';
 import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
 import ViewDocument from './components/student/viewDocuments/ViewDocument';
 import SubmittedDocs from './components/supervisor-view/submittedDoc';
+
 
 
 export default class App extends React.Component {
@@ -56,8 +68,24 @@ export default class App extends React.Component {
                         <Route path='/markingSchemes' element={<MarkingSchemeView />} />
                         <Route path='/creategroups' element={<GroupChat />} />
                         <Route path='/requestsupervisor' element={<RequestSupervisors />} />
+
+
+                        <Route path='/adminUSdashboard' element={<AdminUSDash/>}/>
+                        <Route path='/adminmarkingshboard' element={<AdminDashbo/>}/>
+                        <Route path='/adminGroup' element={<AdminGroups/>}/>
+                        <Route path='/submission' element={<Submission/>}/>
+
+                        <Route path='/viewsubmission' element={<Viewsubmission/>}/>
+                        <Route path='/addash' element={<Addashboard/>}/>
+                        
+                        
+                        
+                        
+
+
                         <Route path='/viewdocument' element={<ViewDocument />} />
                        <Route path='/studentdocs' element={<SubmittedDocs />} />
+
 
                     </Routes>
                     <Footer></Footer>
