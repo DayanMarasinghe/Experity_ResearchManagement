@@ -8,7 +8,8 @@ import chat from '../../assets/images/chat-img.png';
 import topic from '../../assets/images/topic-img.png';
 import { Link } from "react-router-dom";
 import evaluation from '../../assets/images/evaluation.png';
-import welcome from '../../assets/images/welcomeimg.png'
+import welcome from '../../assets/images/welcomeimg.png';
+import docs from '../../assets/images/docs.png';
 
 class SupervisorDashboard extends Component {
     
@@ -20,7 +21,7 @@ class SupervisorDashboard extends Component {
                     <img src={welcome} style={{height : '250px', width:'0px'}}/>
                 </div>*/}
                 <div className="card-container">
-                    <MDBRow className='row-cols-1 row-cols-md-5 g-4'>
+                    <MDBRow className='row-cols-2 row-cols-md-6 g-4'>
                         <MDBCol>
                             <MDBCard className="card">
                                 <MDBCardImage src={group} position="top"></MDBCardImage>
@@ -68,8 +69,20 @@ class SupervisorDashboard extends Component {
                             <MDBCard className="card">
                                 <MDBCardImage src={evaluation} position="top"></MDBCardImage>
                                 <MDBCardBody className="card-body">
-                                    <Button variant="primary">
+                                    <Button variant="primary" as={Link}
+                                        to="/markingSchemes">
                                         View Marking Schemes
+                                    </Button>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </MDBCol>
+                        <MDBCol>
+                            <MDBCard className="card">
+                                <MDBCardImage src={docs} position="top"></MDBCardImage>
+                                <MDBCardBody className="card-body">
+                                    <Button variant="primary" as={Link}
+                                        to="/studentdocs">
+                                        Student Submissions
                                     </Button>
                                 </MDBCardBody>
                             </MDBCard>

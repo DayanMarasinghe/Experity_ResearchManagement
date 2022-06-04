@@ -15,18 +15,17 @@ function Header(){
                     <Nav className="me-auto"
                         navbar>
                         <NavItem>
+
                             <NavLink href="/supervisordashboard">
                                 Supervisor Dashboard
                             </NavLink>
                         </NavItem>
                         <NavItem>
-<<<<<<< HEAD
-                            <NavLink href="/">
-                                Student Dashboard
-=======
+
+       
                             <NavLink href="/studentdashboard">
                                 Student Dahboard
->>>>>>> 0408896 (request supervisor BE and UI)
+
                             </NavLink>
                         </NavItem>
                         <NavItem>
@@ -34,7 +33,7 @@ function Header(){
                                 Panel Member Dashboard
                             </NavLink>
                         </NavItem>
-                        <NavItem>
+
                             <NavLink href="/">
                                 Login
                             </NavLink>

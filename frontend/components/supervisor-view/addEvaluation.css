@@ -1,6 +1,7 @@
-.container{
-    width: 800px;
-    padding: 2% 0% 2% 0%;
+.container-i{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
 }
 
 .complete-btn{
