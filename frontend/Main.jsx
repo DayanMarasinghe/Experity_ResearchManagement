@@ -10,7 +10,7 @@ import UserReg from './components/userRegister';
 import StudentDashboard from './components/student/studentDashboard/studentDashboard'
 import StudentHeader from './components/student/header/studentHeader';
 import TopicRegistration from './components/student/topicRegistration/TopicRegistration';
-import ResearchResources from './components/student/researchResources/researchResources';
+import ResearchResources from './components/student/researchResources/ResearchResources';
 import DocumentSubmission from './components/student/documentSubmission/DocumentSubmission';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
