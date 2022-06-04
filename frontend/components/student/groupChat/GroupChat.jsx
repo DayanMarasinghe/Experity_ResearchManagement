@@ -12,11 +12,6 @@ import {
   Label,
 } from "reactstrap";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
 
 class GroupChat extends Component {
   state = { selectedOption: null };
@@ -36,6 +31,8 @@ class GroupChat extends Component {
     this.state = {
       setStudents: [],
       groupid: "",
+      success : false,
+      error : false
     };
   }
 
@@ -74,10 +71,9 @@ class GroupChat extends Component {
   }
 
   saveGroup = () => {
-    alert("button clicked");
     if (this.state.selectedOption && this.state.groupid) {
       if (this.state.selectedOption.length != 4) {
-        alert("groups must be consist of 4 members only");
+        this.setState({error : true})
       } else {
         console.log("final options", this.state.selectedOption);
         console.log("setGroupId", this.state.groupid);
@@ -109,18 +105,33 @@ class GroupChat extends Component {
           body: JSON.stringify(obj),
         }).then(() => {
           console.log(obj);
-          alert("successfully added");
+          this.setState({success : true})
+         
         });
       }
     } else {
       alert("you need to select students and add a group name");
+      this.setState({error : true})
     }
   };
 
   render() {
     return (
-      <div className="container">
-        <Button style={{ margin: 30 }} href="/requestsupervisor">
+      <div className="container" style={{width : 1000}}>
+        {
+          this.state.success && <div class="alert alert-success" role="alert" style={{marginTop: 30}}>
+          A Research group successfully created!
+        </div>
+        } 
+
+        {
+          this.state.error && <div class="alert alert-danger" role="alert" style={{marginTop: 30}}>
+          The group should be consist with at least four members!
+        </div>
+        }
+
+
+        <Button style={{ marginLeft: 800, marginBottom : 60, marginTop : 30 }} href="/requestsupervisor">
           Request Supervisors
         </Button>
         <Form style={{marginBottom : 200}}>
@@ -153,7 +164,7 @@ class GroupChat extends Component {
                 options={this.state.options}
                 isMulti={true}
                 isSearchable={true}
-              />
+              /> 
             )}
 
             </Col>
@@ -171,7 +182,7 @@ class GroupChat extends Component {
                 onClick={this.saveGroup}
                 style={{ marginBottom: 50, paddingLeft: 30, paddingRight: 30 }}
               >
-                Submit
+                Create 
               </Button>
             </Col>
           </FormGroup>

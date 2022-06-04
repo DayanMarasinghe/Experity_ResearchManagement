@@ -37,11 +37,16 @@ app.use('/users',userRouter)
 const adminUserRouter = require('./routes/adminUser.route')
 app.use('/adminUsers',adminUserRouter)
 
+<<<<<<< HEAD
 //request routers
 const requestRouter = require('./routes/requests.route')
 app.use('/requests', requestRouter)
 
 const panelMarkingRouter = require('./routes/pmMarkingRoute')
 app.use('/panelMarking',panelMarkingRouter)
+=======
+const documentUploadRouter = require('./routes/documentUplaod.route')
+app.use('/documentupload', documentUploadRouter)
+>>>>>>> 0408896 (request supervisor BE and UI)
 
 app.listen(4000, () => console.log('Server started on port 4000..'))

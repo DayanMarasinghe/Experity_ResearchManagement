@@ -20,8 +20,13 @@ function Header(){
                             </NavLink>
                         </NavItem>
                         <NavItem>
+<<<<<<< HEAD
                             <NavLink href="/">
                                 Student Dashboard
+=======
+                            <NavLink href="/studentdashboard">
+                                Student Dahboard
+>>>>>>> 0408896 (request supervisor BE and UI)
                             </NavLink>
                         </NavItem>
                         <NavItem>

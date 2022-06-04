@@ -27,7 +27,7 @@ export default function StudentDashboard() {
               href="/creategroups"
               style={{ textDecoration: "none", color: "black" }}
             >
-               <CardTitle style={{ fontSize: 17 }} tag="h5">
+               <CardTitle style={{ fontSize: 18, color : "#0d6efd" }} tag="h5">
               STUDENT GROUPS
             </CardTitle>
             </a>
@@ -48,7 +48,7 @@ export default function StudentDashboard() {
               href="/topicregister"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <CardTitle style={{ fontSize: 17 }} tag="h5">
+              <CardTitle style={{ fontSize: 18, color : "#0d6efd"  }} tag="h5">
               TOPIC REGISTRATION
             </CardTitle>
             </a>
@@ -68,7 +68,7 @@ export default function StudentDashboard() {
               href="/researchresources"
               style={{ textDecoration: "none", color: "black" }}
             >
-               <CardTitle style={{ fontSize: 17 }} tag="h5">
+               <CardTitle style={{ fontSize: 18, color : "#0d6efd" }} tag="h5">
               RESEARCH RESOURCES
             </CardTitle>
             </a>
@@ -89,7 +89,7 @@ export default function StudentDashboard() {
               href="/documentsubmit"
               style={{ textDecoration: "none", color: "black" }}
             >
-               <CardTitle style={{ fontSize: 17 }} tag="h5">
+               <CardTitle style={{ fontSize: 18, color : "#0d6efd"  }} tag="h5">
               DOCUMENT SUBMISSION
             </CardTitle>
             </a>

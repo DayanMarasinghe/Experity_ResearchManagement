@@ -24,6 +24,7 @@ import AddEvaluation from './components/supervisor-view/addEvaluation';
 import AcceptTopic from './components/supervisor-view/acceptTopic';
 import GroupChat from './components/student/groupChat/GroupChat'
 import RequestSupervisors from './components/student/requestSupervisors/RequestSupervisors';
+import ViewDocument from './components/student/viewDocuments/ViewDocument';
 
 
 
@@ -57,6 +58,7 @@ export default class App extends React.Component {
                         <Route path='/accepttopic' element={<AcceptTopic />} />
                         <Route path='/creategroups' element={<GroupChat />} />
                         <Route path='/requestsupervisor' element={<RequestSupervisors />} />
+                        <Route path='/viewdocument' element={<ViewDocument />} />
 
 
                     </Routes>
