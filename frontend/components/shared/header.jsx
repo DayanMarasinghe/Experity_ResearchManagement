@@ -15,25 +15,6 @@ function Header(){
                     <Nav className="me-auto"
                         navbar>
                         <NavItem>
-
-                            <NavLink href="/supervisordashboard">
-                                Supervisor Dashboard
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-
-       
-                            <NavLink href="/studentdashboard">
-                                Student Dahboard
-
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/pmdashboard">
-                                Panel Member Dashboard
-                            </NavLink>
-                        </NavItem>
-
                             <NavLink href="/">
                                 Login
                             </NavLink>
